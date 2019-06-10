@@ -1,0 +1,4 @@
+<resources>
+	<bitmap id="id_msg" filename="drawables/msg_icon.png" />
+   	<bitmap id="id_charge" filename="drawables/charging_icon.png" />
+</resources>
