@@ -45,10 +45,14 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		var myMinutes = Lang.format("$1$",[nowText.min.format("%02d")]);
 		var myDay = Lang.format("$1$",[nowText.day.format("%02d")]);
 	
+		// Hours
 		dc.drawText( (width / 2)-20, ((height/2)-20)-17-40, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+		// Minutes
 		dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+		
 		dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
 		if (!sleepMode) {
+			// Date if not in sleep mode (or sleep mode desactivated)
 			dc.drawText( (width / 2), (height /2)+60-20, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
 	        var battery = (System.getSystemStats().battery + 0.5).toNumber();
         	if (!System.getSystemStats().charging && battery <=Application.getApp().getProperty("BatteryLevelCritical")) {

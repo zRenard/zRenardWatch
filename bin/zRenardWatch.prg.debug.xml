@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <pcToLineNum>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchBackground.mc" id="3" lineNum="7" pc="268435456" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchBackground.mc" id="3" lineNum="8" pc="268435460" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchBackground.mc" id="3" lineNum="12" pc="268435481" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchBackground.mc" id="4" lineNum="15" pc="268435502" symbol="draw"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchBackground.mc" id="4" lineNum="17" pc="268435506" symbol="draw"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchBackground.mc" id="4" lineNum="18" pc="268435559" symbol="draw"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="6" lineNum="14" pc="268435572" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="6" lineNum="15" pc="268435576" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="6" lineNum="16" pc="268435594" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="6" lineNum="17" pc="268435637" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="6" lineNum="18" pc="268435680" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="7" lineNum="21" pc="268435691" symbol="onShow"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="25" pc="268435696" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="26" pc="268435700" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="27" pc="268435713" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="28" pc="268435726" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="29" pc="268435757" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="30" pc="268435788" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="32" pc="268435819" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="33" pc="268435835" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="34" pc="268435847" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="35" pc="268435873" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="36" pc="268435925" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="37" pc="268435969" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="38" pc="268435988" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="39" pc="268436013" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="40" pc="268436024" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="44" pc="268436040" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="45" pc="268436092" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="46" pc="268436150" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="49" pc="268436208" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="51" pc="268436286" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="53" pc="268436364" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="54" pc="268436390" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="56" pc="268436402" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="57" pc="268436513" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="58" pc="268436551" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="59" pc="268436614" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="60" pc="268436630" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="62" pc="268436677" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="63" pc="268436739" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="64" pc="268436765" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="67" pc="268436843" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="68" pc="268436867" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="71" pc="268436912" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="72" pc="268436944" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="73" pc="268436967" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="74" pc="268436978" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="75" pc="268437023" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="8" lineNum="76" pc="268437059" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="9" lineNum="85" pc="268437126" symbol="onHide"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="10" lineNum="89" pc="268437131" symbol="onExitSleep"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="10" lineNum="90" pc="268437135" symbol="onExitSleep"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="11" lineNum="94" pc="268437146" symbol="onEnterSleep"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="11" lineNum="95" pc="268437150" symbol="onEnterSleep"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchView.mc" id="11" lineNum="96" pc="268437182" symbol="onEnterSleep"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="13" lineNum="6" pc="268437196" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="13" lineNum="7" pc="268437200" symbol="initialize"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="14" lineNum="11" pc="268437219" symbol="onStart"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="15" lineNum="15" pc="268437224" symbol="onStop"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="16" lineNum="19" pc="268437229" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="16" lineNum="20" pc="268437233" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="17" lineNum="24" pc="268437271" symbol="onSettingsChanged"/>
+        <entry filename="C:\\Users\\fox\\iCloudDrive\\Projects\\zRenardWatch\\source\\zRenardWatchApp.mc" id="17" lineNum="25" pc="268437275" symbol="onSettingsChanged"/>
+        <entry filename="Rez" id="24" lineNum="41" pc="268437292" symbol="WatchFace"/>
+        <entry filename="Rez" id="24" lineNum="45" pc="268437304" symbol="WatchFace"/>
+        <entry filename="Rez" id="24" lineNum="48" pc="268437328" symbol="WatchFace"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry field="true" id="15" symbol="id_msg"/>
+        <entry id="9" object="true" symbol="zRenardWatchView"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="36" symbol="ico_msg"/>
+        <entry field="true" id="19" symbol="ColorBlue"/>
+        <entry id="10" object="true" symbol="zRenardWatchApp"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry id="8388645" module="true" symbol="Time"/>
+        <entry field="true" id="26" symbol="ColorOrange"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry field="true" id="34" symbol="ColorWhite"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389068" method="true" symbol="draw"/>
+        <entry id="8389377" method="true" symbol="onExitSleep"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry field="true" id="23" symbol="ColorBlack"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry id="8388924" module="true" symbol="Gregorian"/>
+        <entry field="true" id="29" symbol="ColorRed"/>
+        <entry field="true" id="38" symbol="sleepMode"/>
+        <entry field="true" id="30" symbol="ForegroundColorTitle"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry field="true" id="28" symbol="AppName"/>
+        <entry id="8389375" method="true" object="true" symbol="WatchFace"/>
+        <entry field="true" id="37" symbol="ico_charge"/>
+        <entry id="8390146" module="true" object="true" symbol="Background"/>
+        <entry field="true" id="17" symbol="LauncherIcon"/>
+        <entry id="8389683" method="true" symbol="onSettingsChanged"/>
+        <entry field="true" id="25" symbol="BatteryLevelTitle"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry field="true" id="33" symbol="ColorCyan"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry field="true" id="24" symbol="ShowNotificationTitle"/>
+        <entry field="true" id="22" symbol="ColorDarkGray"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="8389376" method="true" symbol="onEnterSleep"/>
+        <entry field="true" id="20" symbol="HighLightColorTitle"/>
+        <entry field="true" id="18" symbol="ColorLightGray"/>
+        <entry field="true" id="27" symbol="BatteryLevelError"/>
+        <entry field="true" id="21" symbol="BackgroundColorTitle"/>
+        <entry field="true" id="13" symbol="ChargingIcon"/>
+        <entry field="true" id="32" symbol="BatteryLevelCriticalTitle"/>
+        <entry id="12" module="true" symbol="Layouts"/>
+        <entry field="true" id="16" symbol="id_charge"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry id="8390088" module="true" object="true" symbol="JsonData"/>
+        <entry field="true" id="8389063" symbol="identifier"/>
+        <entry field="true" id="14" symbol="NotificationIcon"/>
+        <entry field="true" id="31" symbol="UseSleepModeTitle"/>
+        <entry field="true" id="35" symbol="BatteryLevelCriticalError"/>
+        <entry id="11" module="true" symbol="Menus"/>
+        <entry id="8388772" module="true" object="true" symbol="Fonts"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+    </symbolTable>
+    <localVars>
+        <entry endPc="268435501" name="dictionary" stackId="1" startPc="268435460"/>
+        <entry endPc="268435572" name="dc" stackId="1" startPc="268435502"/>
+        <entry endPc="268437119" name="notification" stackId="14" startPc="268436944"/>
+        <entry endPc="268437122" name="battery" stackId="13" startPc="268436402"/>
+        <entry endPc="268437125" name="hlC" stackId="6" startPc="268435700"/>
+        <entry endPc="268437125" name="width" stackId="2" startPc="268435700"/>
+        <entry endPc="268437125" name="now" stackId="7" startPc="268435700"/>
+        <entry endPc="268437125" name="myMinutes" stackId="11" startPc="268435700"/>
+        <entry endPc="268437125" name="fgC" stackId="5" startPc="268435700"/>
+        <entry endPc="268437125" name="nowText" stackId="8" startPc="268435700"/>
+        <entry endPc="268437125" name="bgC" stackId="4" startPc="268435700"/>
+        <entry endPc="268437125" name="myDay" stackId="12" startPc="268435700"/>
+        <entry endPc="268437125" name="myHours" stackId="10" startPc="268435700"/>
+        <entry endPc="268437125" name="hours" stackId="9" startPc="268435700"/>
+        <entry endPc="268437125" name="height" stackId="3" startPc="268435700"/>
+        <entry endPc="268437126" name="dc" stackId="1" startPc="268435696"/>
+        <entry endPc="268437224" name="state" stackId="1" startPc="268437219"/>
+        <entry endPc="268437229" name="state" stackId="1" startPc="268437224"/>
+        <entry endPc="268437345" name="rez_cmp_local_custom_drawable_20655559016032640211" stackId="2" startPc="268437304"/>
+        <entry endPc="268437346" name="dc" stackId="1" startPc="268437292"/>
+    </localVars>
+    <annotations/>
+    <functions>
+        <functionEntry accessMode="public" name="initialize" parent="Background">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="draw" parent="Background">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="zRenardWatchView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onShow" parent="zRenardWatchView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onUpdate" parent="zRenardWatchView">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onHide" parent="zRenardWatchView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onExitSleep" parent="zRenardWatchView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onEnterSleep" parent="zRenardWatchView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="zRenardWatchApp">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onStart" parent="zRenardWatchApp">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onStop" parent="zRenardWatchApp">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="getInitialView" parent="zRenardWatchApp">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onSettingsChanged" parent="zRenardWatchApp">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="WatchFace" parent="Layouts">
+            <param id="dc"/>
+            <documentation>
+                <![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]>
+            </documentation>
+        </functionEntry>
+    </functions>
+    <dataEntryOffsetMappings>
+        <dataEntry offset="87" parentId="" symbolId="globals" type="module"/>
+        <dataEntry offset="182" parentId="globals" symbolId="Background" type="class"/>
+        <dataEntry offset="237" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry offset="316" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry offset="387" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry offset="418" parentId="Rez" symbolId="Fonts" type="module"/>
+        <dataEntry offset="449" parentId="Rez" symbolId="JsonData" type="module"/>
+        <dataEntry offset="480" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry offset="519" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry offset="694" parentId="globals" symbolId="zRenardWatchView" type="class"/>
+        <dataEntry offset="805" parentId="globals" symbolId="zRenardWatchApp" type="class"/>
+    </dataEntryOffsetMappings>
+</debugInfo>
