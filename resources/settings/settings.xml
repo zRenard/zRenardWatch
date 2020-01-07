@@ -44,6 +44,10 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.ShowBigFont" title="@Strings.ShowBigFontTitle">
+        <settingConfig type="boolean" />
+    </setting>
+ 
     <setting propertyKey="@Properties.ShowNotification" title="@Strings.ShowNotificationTitle">
         <settingConfig type="boolean" />
     </setting>

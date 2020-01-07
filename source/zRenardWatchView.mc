@@ -10,11 +10,13 @@ class zRenardWatchView extends WatchUi.WatchFace {
     hidden var ico_msg;
     hidden var ico_charge;
 	hidden var sleepMode;
+	hidden var font_vlarge;
 
     function initialize() {
         WatchFace.initialize();
         ico_msg = WatchUi.loadResource(Rez.Drawables.id_msg);
         ico_charge = WatchUi.loadResource(Rez.Drawables.id_charge);
+        font_vlarge = WatchUi.loadResource( Rez.Fonts.id_font_vlarge );
         sleepMode = false;        
     }
 
@@ -31,6 +33,14 @@ class zRenardWatchView extends WatchUi.WatchFace {
     	var hlC = Application.getApp().getProperty("HighLightColor");
 	    var fgHC = Application.getApp().getProperty("ForegroundColorHours");
 	    var fgMC = Application.getApp().getProperty("ForegroundColorMinutes");
+	    var bigFont = Application.getApp().getProperty("ShowBigFont");
+    	var offSetBigFont = 0;
+    	var offSetBigFontNotif = 0;
+    	
+    	if (bigFont) {
+    		offSetBigFont = 18;
+    		offSetBigFontNotif = 10;
+    	}
     	
 	    dc.setColor(bgC,bgC);
         dc.clear();
@@ -57,22 +67,29 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		
 			// Hours
 			dc.setColor(fgHC,Graphics.COLOR_TRANSPARENT);
-			dc.drawText( (width / 2)-20, ((height/2)-20)-17-40, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+			if (bigFont) {
+				dc.drawText( (width / 2)-40, ((height/2)-75)-17-40, font_vlarge,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+			} else {
+				dc.drawText( (width / 2)-20, ((height/2)-20)-17-40, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+			}
 			// Minutes
 			dc.setColor(fgMC,Graphics.COLOR_TRANSPARENT);
-			dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
-			
+			if (bigFont) {
+				dc.drawText( (width / 2)+60, ((height/2)-33)-17-35, font_vlarge, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+			} else {
+				dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+			}
 			dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
 			if (!sleepMode || (sleepMode && !Application.getApp().getProperty("UseSleepMode"))) {
 				// Date if not in sleep mode (or sleep mode desactivated)
-				dc.drawText( (width / 2), (height /2)+60-20, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
+				dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
 	        	if (!System.getSystemStats().charging && battery <=Application.getApp().getProperty("BatteryLevelCritical")) {
 		        	dc.setColor(hlC, hlC);
 	    	    	dc.fillRectangle(0, 3*height/4+4, width, 20);
 	    	    }
 		        if (battery <=Application.getApp().getProperty("BatteryLevel") || System.getSystemStats().charging ) {
 		        	dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
-		        	dc.drawText(width / 2, 3*height/4, Graphics.FONT_TINY, battery.toString() + "%", Graphics.TEXT_JUSTIFY_CENTER);
+		        	dc.drawText(width / 2, 3*height/4+offSetBigFont, Graphics.FONT_TINY, battery.toString() + "%", Graphics.TEXT_JUSTIFY_CENTER);
 		        }
 		
 		        if (System.getSystemStats().charging ) {
@@ -82,9 +99,9 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        if (Application.getApp().getProperty("ShowNotification")) {
 					var notification = System.getDeviceSettings().notificationCount;
 					if (notification > 0) {
-						dc.drawBitmap((width / 2)-(34/2)+50, 34, ico_msg);
+						dc.drawBitmap((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg);
 						dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-						dc.drawText(width / 2+50, 34, Graphics.FONT_TINY, notification, Graphics.TEXT_JUSTIFY_CENTER);
+						dc.drawText(width / 2+50, 34-offSetBigFontNotif, Graphics.FONT_TINY, notification, Graphics.TEXT_JUSTIFY_CENTER);
 					}
 				}
 			}

@@ -3,6 +3,7 @@
     <property id="ForegroundColor" type="number">0xFFFFFF</property>
     <property id="ForegroundColorHours" type="number">0xFFFFFF</property>
     <property id="ForegroundColorMinutes" type="number">0xFFFFFF</property>
+    <property id="ShowBigFont" type="boolean">false</property>
     <property id="HighLightColor" type="number">0xFF5500</property>
     <property id="ShowNotification" type="boolean">true</property>
     <property id="UseSleepMode" type="boolean">false</property>

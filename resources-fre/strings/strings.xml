@@ -7,6 +7,8 @@
     <string id="ForegroundColorMinutesTitle">Couleur du texte des minutes</string>
     <string id="HighLightColorTitle">Couleur de la date</string>
 
+    <string id="ShowBigFontTitle">Affiche l'heure en grande taille</string>
+
     <string id="UseSleepModeTitle">Masque la date et les notifications en mode repos</string>
     <string id="UltraSleepModeTitle">Si le niveau de batterie est critique, l'écran devient entièrement noir, et la montre est affiché uniquement en dehors du mode repos.</string>
     <string id="ShowNotificationTitle">Affichage des notification ?</string>
