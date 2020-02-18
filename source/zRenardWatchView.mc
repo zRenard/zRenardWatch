@@ -85,7 +85,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 				dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
 	        	if (!System.getSystemStats().charging && battery <=Application.getApp().getProperty("BatteryLevelCritical")) {
 		        	dc.setColor(hlC, hlC);
-	    	    	dc.fillRectangle(0, 3*height/4+4, width, 20);
+	    	    	dc.fillRectangle(0, 3*height/4+4+offSetBigFont, width, 20);
 	    	    }
 		        if (battery <=Application.getApp().getProperty("BatteryLevel") || System.getSystemStats().charging ) {
 		        	dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);

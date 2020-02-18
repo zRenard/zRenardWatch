@@ -12,6 +12,7 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 ## Display
 * Show Notifications (On/Off)
 * Use sleep mode (On/Off). In sleep mode, display only clock.
+* Option to use bigger font
 
 ## Battery level show
 * Minimum value to display %
