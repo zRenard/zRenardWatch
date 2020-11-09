@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <strings>
     <string id="AppName">zRenardWatch</string>
 
@@ -35,3 +36,35 @@
     <string id="ColorCyan">Cyan</string>
     
 </strings>
+=======
+<strings>
+    <string id="AppName">zRenardWatch</string>
+
+    <string id="BackgroundColorTitle">Couleur de fond</string>
+    <string id="ForegroundColorTitle">Couleur du texte</string>
+    <string id="ForegroundColorHoursTitle">Couleur du texte des heures</string>
+    <string id="ForegroundColorMinutesTitle">Couleur du texte des minutes</string>
+    <string id="HighLightColorTitle">Couleur de la date</string>
+
+    <string id="ShowBigFontTitle">Affiche l'heure en grande taille</string>
+
+    <string id="UseSleepModeTitle">Masque la date et les notifications en mode repos</string>
+    <string id="UltraSleepModeTitle">Si le niveau de batterie est critique, l'écran devient entièrement noir, et la montre est affiché uniquement en dehors du mode repos.</string>
+    <string id="ShowNotificationTitle">Affichage des notification ?</string>
+    <string id="BatteryLevelTitle">Le niveau minimum de la batterie qui declanche l'affichage</string>
+	<string id="BatteryLevelError">Le niveau doit etre entre 5 et 95</string>
+
+    <string id="BatteryLevelCriticalTitle">Le niveau minimum de la batterie qui declanche l'affichage d'une alerte</string>
+	<string id="BatteryLevelCriticalError">Le niveau doit etre entre 2 et 30</string>
+
+    <string id="ColorBlack">Noir</string>
+    <string id="ColorDarkGray">Gris Sombre</string>
+    <string id="ColorLightGray">Gris Clair</string>
+    <string id="ColorWhite">Blanc</string>
+    <string id="ColorBlue">Bleu</string>
+    <string id="ColorRed">Rouge</string>
+    <string id="ColorOrange">Orange</string>
+    <string id="ColorCyan">Cyan</string>
+    
+</strings>
+>>>>>>> 33300a8b9f6afaeff577c35da76278ef9ab10f15
