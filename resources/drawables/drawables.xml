@@ -2,4 +2,5 @@
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
     <bitmap id="ChargingIcon" filename="charging_icon.png" />
     <bitmap id="NotificationIcon" filename="msg_icon.png" />
+    <bitmap id="MoveIcon" filename="move.png" />
 </drawables>

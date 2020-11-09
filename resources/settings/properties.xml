@@ -3,10 +3,14 @@
     <property id="ForegroundColor" type="number">0xFFFFFF</property>
     <property id="ForegroundColorHours" type="number">0xFFFFFF</property>
     <property id="ForegroundColorMinutes" type="number">0xFFFFFF</property>
+    <property id="ShowBigFont" type="boolean">false</property>
     <property id="HighLightColor" type="number">0xFF5500</property>
     <property id="ShowNotification" type="boolean">true</property>
     <property id="UseSleepMode" type="boolean">false</property>
     <property id="UltraSleepMode" type="boolean">false</property>
     <property id="BatteryLevel" type="number">30</property>
     <property id="BatteryLevelCritical" type="number">15</property>
+    <property id="ShowMove" type="boolean">true</property>
+    <property id="MoveDisplayType" type="number">1</property>
+    <property id="MoveCircleColor" type="number">0xFFFFFF</property>
 </properties>

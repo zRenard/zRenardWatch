@@ -1,4 +1,6 @@
 <resources>
 	<bitmap id="id_msg" filename="drawables/msg_icon.png" />
    	<bitmap id="id_charge" filename="drawables/charging_icon.png" />
+   	<bitmap id="id_move" filename="drawables/move.png" />
+   	<font id="id_font_vlarge" filename="fonts/vlarge.fnt" antialias="true" filter="0123456789:"/>
 </resources>
