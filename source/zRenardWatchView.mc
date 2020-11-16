@@ -38,8 +38,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 	    var fgMC = Application.getApp().getProperty("ForegroundColorMinutes");
 	    var bigFont = Application.getApp().getProperty("ShowBigFont");
 	    var showMove = Application.getApp().getProperty("ShowMove");
-	    var moveIcons = Application.getApp().getProperty("MoveIcons");
-	    var moveCircle = Application.getApp().getProperty("MoveCircle");
+	    var moveDisplayType = Application.getApp().getProperty("MoveDisplayType");
     	var offSetBigFont = 0;
     	var offSetBigFontNotif = 0;
     	var moveLevel = ActivityMonitor.getInfo().moveBarLevel;
@@ -103,8 +102,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 					dc.drawBitmap((width / 2)-20/2, height-20, ico_charge);
 		        }
 
-				if (Application.getApp().getProperty("ShowMove") && moveLevel>0) {
-					var moveDisplayType = Application.getApp().getProperty("MoveDisplayType");
+				if (showMove && moveLevel>0) {
 					if (moveDisplayType==1) {
 						dc.setPenWidth(2);
 						dc.setColor(Application.getApp().getProperty("MoveCircleColor"), Graphics.COLOR_TRANSPARENT);
