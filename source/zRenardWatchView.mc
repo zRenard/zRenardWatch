@@ -50,6 +50,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
     	
 	    dc.setColor(bgC,bgC);
         dc.clear();
+    	dc.setAntiAlias(true);
    		if ( !sleepMode ||
     		 ( sleepMode && !Application.getApp().getProperty("UltraSleepMode") ) ||
     		 ( sleepMode && (Application.getApp().getProperty("UltraSleepMode") &&
