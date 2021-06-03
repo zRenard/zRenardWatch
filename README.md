@@ -22,3 +22,9 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Show inactivity (On/Off)
 * Display as circle, icons on top, or icons on bottom/left
 * Set inactivity circle color
+
+# History
+* 1.4.2
+     - (*fix*) Fix compatibility issue with antialiasing on Fenix 5
+* 1.4.1
+     - (**new**) Add new colors
