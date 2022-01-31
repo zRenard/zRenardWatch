@@ -24,6 +24,8 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Set inactivity circle color
 
 # History
+* 1.4.3
+	* (**new**) Add Fenix 7 support and news models
 * 1.4.2
      - (*fix*) Fix compatibility issue with antialiasing on Fenix 5
 * 1.4.1
