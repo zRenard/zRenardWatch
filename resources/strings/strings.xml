@@ -19,10 +19,12 @@
 
 	<string id="ShowMoveTitle">Show inactivity status</string>
     <string id="MoveDisplayTypeTitle">Inactivity status type</string>
-	<string id="MoveCircle">Show as circle</string>
     <string id="MoveTopIcons">Show as icons on top</string>
     <string id="MoveBottomIcons">Show as icons on bottom/left</string>
+	<string id="MoveCircle">Show as circle</string>
 	<string id="MoveCircleTitle">Inactivity circle color</string>
+	<string id="MoveCircleWidthTitle">Size of the line of move indicator (circle)</string>
+	<string id="MoveCircleWidthError">Invalid size of the move indicator line</string>
 
     <string id="ColorBlack">Black</string>
     <string id="ColorDarkGray">Dark Gray</string>

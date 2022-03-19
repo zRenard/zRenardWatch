@@ -24,6 +24,8 @@
     <string id="MoveTopIcons">Sous forme d'icones en haut</string>
     <string id="MoveBottomIcons">Sous forme d'icones en bas à gauche</string>
 	<string id="MoveCircleTitle">Couleur du cercle d'inactivité</string>
+	<string id="MoveCircleWidthTitle">Taille de la ligne de l'indicateur d'inactivité (cercle)</string>
+	<string id="MoveCircleWidthError">Erreur de la taille de la ligne de l'indicateur d'inactivité</string>
 
     <string id="ColorBlack">Noir</string>
     <string id="ColorDarkGray">Gris Sombre</string>

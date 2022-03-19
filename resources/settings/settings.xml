@@ -102,4 +102,7 @@
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.MoveCircleWidth" title="@Strings.MoveCircleWidthTitle">
+        <settingConfig type="numeric" min="1" max="6" errorMessage="@Strings.MoveCircleWidthError"/>
+    </setting>
 </settings>

@@ -85,6 +85,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 				dc.drawText( (width / 2)+60, ((height/2)-33)-17-35, font_vlarge, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
 			} else {
 				dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+				//dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
 			}
 			dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
 			if (!sleepMode || (sleepMode && !Application.getApp().getProperty("UseSleepMode"))) {
@@ -105,11 +106,11 @@ class zRenardWatchView extends WatchUi.WatchFace {
 
 				if (showMove && moveLevel>0) {
 					if (moveDisplayType==1) {
-						dc.setPenWidth(2);
+						dc.setPenWidth(Application.getApp().getProperty("MoveCircleWidth"));
 						dc.setColor(Application.getApp().getProperty("MoveCircleColor"), Graphics.COLOR_TRANSPARENT);
-						dc.drawArc(width / 2, height / 2, (width / 2)-2,Graphics.ARC_CLOCKWISE,90,90-72*moveLevel);
+						dc.drawArc(width / 2, height / 2, (width / 2)-1-Math.floor(Application.getApp().getProperty("MoveCircleWidth")/2),Graphics.ARC_CLOCKWISE,90,90-72*moveLevel);
 						dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
-						dc.setPenWidth(1);
+						dc.setPenWidth(2);
 					}
 					if (moveDisplayType==2) {
 				        if (moveLevel==1||moveLevel==3||moveLevel==5) {
