@@ -1,63 +1,76 @@
-using Toybox.WatchUi;
-using Toybox.Graphics;
-using Toybox.System;
-using Toybox.Time;
-using Toybox.Time.Gregorian;
-using Toybox.Lang;
-using Toybox.Application;
-using Toybox.ActivityMonitor;
+import Toybox.WatchUi;
+import Toybox.Graphics;
+import Toybox.System;
+import Toybox.Time;
+import Toybox.Time.Gregorian;
+import Toybox.Lang;
+import Toybox.Application;
+import Toybox.ActivityMonitor;
 
 class zRenardWatchView extends WatchUi.WatchFace {
-    hidden var ico_msg;
-    hidden var ico_charge;
-	hidden var ico_move;
-	hidden var sleepMode;
-	hidden var font_vlarge;
+    var ico_msg = Application.loadResource(Rez.Drawables.id_msg);
+    var ico_charge = Application.loadResource(Rez.Drawables.id_charge);
+	var ico_move = Application.loadResource(Rez.Drawables.id_move);
+	var sleepMode = false;
+	var font_vlarge = Application.loadResource(Rez.Fonts.id_font_vlarge);
+	var font_medium = Application.loadResource(Rez.Fonts.id_font_medium);
 
-    function initialize() {
-        WatchFace.initialize();
-        ico_msg = WatchUi.loadResource(Rez.Drawables.id_msg);
-        ico_charge = WatchUi.loadResource(Rez.Drawables.id_charge);
-        ico_move = WatchUi.loadResource(Rez.Drawables.id_move);
-        font_vlarge = WatchUi.loadResource( Rez.Fonts.id_font_vlarge );
-        sleepMode = false;        
+    public function initialize() {
+        WatchFace.initialize();    	
+        sleepMode = false;      
     }
 
+    // Load your resources here
+    function onLayout(dc) {
+        setLayout(Rez.Layouts.WatchFace(dc));
+    }
+    
     function onShow() {
     }
 
     // Update the view
     function onUpdate(dc) {
+    	var myApp = Application.getApp();
     	var battery = (System.getSystemStats().battery + 0.5).toNumber();
     	var width = dc.getWidth();
     	var height = dc.getHeight();
-    	var bgC = Application.getApp().getProperty("BackgroundColor");
-    	var fgC = Application.getApp().getProperty("ForegroundColor");
-    	var hlC = Application.getApp().getProperty("HighLightColor");
-	    var fgHC = Application.getApp().getProperty("ForegroundColorHours");
-	    var fgMC = Application.getApp().getProperty("ForegroundColorMinutes");
-	    var bigFont = Application.getApp().getProperty("ShowBigFont");
-	    var showMove = Application.getApp().getProperty("ShowMove");
-	    var moveDisplayType = Application.getApp().getProperty("MoveDisplayType");
+    	var bgC = readKeyInt(myApp,"BackgroundColor",0x000000);
+    	var fgC = readKeyInt(myApp,"ForegroundColor",0xFFFFFF);
+	    var fgHC = readKeyInt(myApp,"ForegroundColorHours",0xFFFFFF);
+	    var fgMC = readKeyInt(myApp,"ForegroundColorMinutes",0xFFFFFF);
+    	var hlC = readKeyInt(myApp,"HighLightColor",0xFF5500);
+	    var fontSize = readKeyInt(myApp,"FontSize",1);
+		var showNotification = readKeyBoolean(myApp,"ShowNotification",true);
+		var sleepMode = readKeyBoolean(myApp,"UseSleepMode",false);
+		var ultraSleepMode = readKeyBoolean(myApp,"UltraSleepMode",false);
+		var batteryLevel = readKeyInt(myApp,"BatteryLevel",30);
+		var batteryLevelCritical = readKeyInt(myApp,"BatteryLevelCritical",15);
+	    var showMove = readKeyBoolean(myApp,"ShowMove",true);
+	    var moveDisplayType = readKeyInt(myApp,"MoveDisplayType",1);
+		var moveCircleColor = readKeyInt(myApp,"MoveCircleColor",0xFFFFFF);
+		var moveCircleWidth = readKeyInt(myApp,"MoveCircleWidth",2);
+		
     	var offSetBigFont = 0;
     	var offSetBigFontNotif = 0;
     	var moveLevel = ActivityMonitor.getInfo().moveBarLevel;
     	
-    	if (bigFont) {
+    	if (fontSize==3) { // Big
     		offSetBigFont = 18;
     		offSetBigFontNotif = 10;
+    	} else if (fontSize==2) { // Medium
+    		offSetBigFont = 10;
+    		offSetBigFontNotif = 0;
+    	} else {
+    		offSetBigFont = 0;
+    		offSetBigFontNotif = 0;
     	}
     	
+        if (dc has :setAntiAlias ) { dc.setAntiAlias(true); }
 	    dc.setColor(bgC,bgC);
         dc.clear();
-        if (dc has :setAntiAlias ) { dc.setAntiAlias(true); }
    		if ( !sleepMode ||
-    		 ( sleepMode && !Application.getApp().getProperty("UltraSleepMode") ) ||
-    		 ( sleepMode && (Application.getApp().getProperty("UltraSleepMode") &&
-    		   				 battery>Application.getApp().getProperty("BatteryLevelCritical")
-    		 				)
-    		 )
-    		) {       
+    		 ( sleepMode && !ultraSleepMode ) ||
+    		 ( sleepMode && (ultraSleepMode && battery>batteryLevelCritical))) {       
 			dc.setColor(fgC,Graphics.COLOR_TRANSPARENT);  		
 	 		var now = new Time.Moment(Time.today().value());
 	 		var nowText = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
@@ -74,28 +87,33 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		
 			// Hours
 			dc.setColor(fgHC,Graphics.COLOR_TRANSPARENT);
-			if (bigFont) {
-				dc.drawText( (width / 2)-40, ((height/2)-75)-17-40, font_vlarge,myHours, Graphics.TEXT_JUSTIFY_CENTER);
-			} else {
-				dc.drawText( (width / 2)-20, ((height/2)-20)-17-40, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT,myHours, Graphics.TEXT_JUSTIFY_CENTER);
-			}
+			if (fontSize==3) { // Big
+	    		dc.drawText( (width / 2)-40, ((height/2)-75)-17-40, font_vlarge,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+	    	} else if (fontSize==2) { // Medium
+	    		dc.drawText( (width / 2)-30, ((height/2)-35)-17-40, font_medium,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+	    	} else { // Small
+	    		dc.drawText( (width / 2)-20, ((height/2)-20)-17-40, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT,myHours, Graphics.TEXT_JUSTIFY_CENTER);
+	    	}
+
 			// Minutes
 			dc.setColor(fgMC,Graphics.COLOR_TRANSPARENT);
-			if (bigFont) {
-				dc.drawText( (width / 2)+60, ((height/2)-33)-17-35, font_vlarge, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
-			} else {
-				dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
-				//dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
-			}
+			if (fontSize==3) { // Big
+	    		dc.drawText( (width / 2)+60, ((height/2)-33)-17-35, font_vlarge, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+	    	} else if (fontSize==2) { // Medium
+	    		dc.drawText( (width / 2)+45, ((height/2)-15)-17-35, font_medium, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+	    	} else { // Small
+	    		dc.drawText( (width / 2)+20, ((height/2)+20)-17-35, Graphics.FONT_SYSTEM_NUMBER_THAI_HOT, myMinutes, Graphics.TEXT_JUSTIFY_CENTER);
+	    	}
+
 			dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
-			if (!sleepMode || (sleepMode && !Application.getApp().getProperty("UseSleepMode"))) {
+			if (!sleepMode || (sleepMode && !sleepMode)) {
 				// Date if not in sleep mode (or sleep mode desactivated)
 				dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
-	        	if (!System.getSystemStats().charging && battery <=Application.getApp().getProperty("BatteryLevelCritical")) {
+	        	if (!System.getSystemStats().charging && battery <=batteryLevelCritical) {
 		        	dc.setColor(hlC, hlC);
 	    	    	dc.fillRectangle(0, 3*height/4+4+offSetBigFont, width, 20);
 	    	    }
-		        if (battery <=Application.getApp().getProperty("BatteryLevel") || System.getSystemStats().charging ) {
+		        if (battery <=batteryLevel || System.getSystemStats().charging ) {
 		        	dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
 		        	dc.drawText(width / 2, 3*height/4+offSetBigFont, Graphics.FONT_TINY, battery.toString() + "%", Graphics.TEXT_JUSTIFY_CENTER);
 		        }
@@ -106,13 +124,12 @@ class zRenardWatchView extends WatchUi.WatchFace {
 
 				if (showMove && moveLevel>0) {
 					if (moveDisplayType==1) {
-						dc.setPenWidth(Application.getApp().getProperty("MoveCircleWidth"));
-						dc.setColor(Application.getApp().getProperty("MoveCircleColor"), Graphics.COLOR_TRANSPARENT);
-						dc.drawArc(width / 2, height / 2, (width / 2)-1-Math.floor(Application.getApp().getProperty("MoveCircleWidth")/2),Graphics.ARC_CLOCKWISE,90,90-72*moveLevel);
+						dc.setPenWidth(moveCircleWidth);
+						dc.setColor(moveCircleColor, Graphics.COLOR_TRANSPARENT);
+						dc.drawArc(width / 2, height / 2, (width / 2)-1-Math.floor(moveCircleWidth/2),Graphics.ARC_CLOCKWISE,90,90-72*moveLevel);
 						dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
 						dc.setPenWidth(2);
-					}
-					if (moveDisplayType==2) {
+					} else if (moveDisplayType==2) {
 				        if (moveLevel==1||moveLevel==3||moveLevel==5) {
 				        	dc.drawBitmap((width / 2)-11, 3, ico_move); /*3*/
 				        }
@@ -132,10 +149,15 @@ class zRenardWatchView extends WatchUi.WatchFace {
 				        	dc.drawBitmap((width / 2)-11*3, 3, ico_move); /*1*/ 
 				        	dc.drawBitmap((width / 2)+11, 3, ico_move); /*5*/
 				        }
-				    }
-				    if (moveDisplayType==3) {
-				    	var offsetMove = (height/7)*4;
-				    	if (bigFont) { offsetMove=(height/6)*4; }
+				    } else { //moveDisplayType==3
+				    	var offsetMove;
+				    	if (fontSize==3) { // Big
+	    					offsetMove=(height/6)*4;
+				    	} else if (fontSize==2) { // Medium
+				    		offsetMove=(height/7)*4+15;
+				    	} else { // Small
+				    		offsetMove = (height/7)*4;
+				    	}
 						if (moveLevel>=1) { dc.drawBitmap((width / 6), offsetMove, ico_move); }
 				        if (moveLevel>=2) { dc.drawBitmap((width / 6)+10, offsetMove, ico_move); }
 				        if (moveLevel>=3) { dc.drawBitmap((width / 6)+10*2, offsetMove, ico_move); }
@@ -144,7 +166,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 					}
 				}		        
 		        
-		        if (Application.getApp().getProperty("ShowNotification")) {
+		        if (showNotification) {
 					var notification = System.getDeviceSettings().notificationCount;
 					if (notification > 0) {
 						dc.drawBitmap((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg);
@@ -171,4 +193,27 @@ class zRenardWatchView extends WatchUi.WatchFace {
     function onEnterSleep() {
 		sleepMode = true;
     }
+    
+    function readKeyInt(myApp,key,thisDefault) {
+	    var value = myApp.getProperty(key);
+	    if(value == null || !(value instanceof Number)) {
+	        if(value != null) {
+	            value = value.toNumber();
+	        } else {
+	            value = thisDefault;
+	        }
+	    }
+	    return value;
+   }
+    function readKeyBoolean(myApp,key,thisDefault) {
+	    var value = myApp.getProperty(key);
+	    if(value == null || !(value instanceof Boolean)) {
+	        if(value != null) {
+	            value = true;
+	        } else {
+	            value = thisDefault;
+	        }
+	    }
+	    return value;
+   }
 }

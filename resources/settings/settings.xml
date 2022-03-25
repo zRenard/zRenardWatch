@@ -11,10 +11,11 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
 
-<setting propertyKey="@Properties.ForegroundColorHours" title="@Strings.ForegroundColorHoursTitle">
+	<setting propertyKey="@Properties.ForegroundColorHours" title="@Strings.ForegroundColorHoursTitle">
         <settingConfig type="list">
             <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
@@ -25,6 +26,7 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
 
@@ -39,6 +41,7 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
 
@@ -53,12 +56,18 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
+    
+	<setting propertyKey="@Properties.FontSize" title="@Strings.FontSizeTitle">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.Small</listEntry>
+            <listEntry value="2">@Strings.Medium</listEntry>
+            <listEntry value="3">@Strings.Large</listEntry>
+        </settingConfig>
+    </setting> 
 
-    <setting propertyKey="@Properties.ShowBigFont" title="@Strings.ShowBigFontTitle">
-        <settingConfig type="boolean" />
-    </setting>
  
     <setting propertyKey="@Properties.ShowNotification" title="@Strings.ShowNotificationTitle">
         <settingConfig type="boolean" />
@@ -78,7 +87,7 @@
     <setting propertyKey="@Properties.BatteryLevelCritical" title="@Strings.BatteryLevelCriticalTitle">
         <settingConfig type="numeric" min="2" max="30" errorMessage="@Strings.BatteryLevelCriticalError"/>
     </setting>
-    
+
    <setting propertyKey="@Properties.ShowMove" title="@Strings.ShowMoveTitle">
         <settingConfig type="boolean" />
     </setting>
@@ -100,6 +109,7 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.MoveCircleWidth" title="@Strings.MoveCircleWidthTitle">

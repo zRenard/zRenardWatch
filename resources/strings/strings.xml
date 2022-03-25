@@ -7,13 +7,17 @@
     <string id="ForegroundColorMinutesTitle">Foreground Color for Minutes</string>
     <string id="HighLightColorTitle">Date Color</string>
     
-    <string id="ShowBigFontTitle">Display time with bigger font</string>
+    <string id="FontSizeTitle">Hours and minutes font size</string>
+    <string id="Small">Small</string>
+    <string id="Medium">Medium</string>
+    <string id="Large">Large</string>
 
     <string id="UseSleepModeTitle">Use sleep mode to hide date and notification</string>
     <string id="ShowNotificationTitle">Show Notification</string>
     <string id="UltraSleepModeTitle">Display bank screen when battery is bellow critical level, and show it only when exiting sleep mode</string>
     <string id="BatteryLevelTitle">Minimum Battery Level to display</string>
 	<string id="BatteryLevelError">Must be between 5 and 95</string>
+	
     <string id="BatteryLevelCriticalTitle">Minimum Battery Level to display a warning</string>
 	<string id="BatteryLevelCriticalError">Must be between 2 and 30</string>
 
@@ -35,4 +39,6 @@
     <string id="ColorOrange">Orange</string>
     <string id="ColorCyan">Cyan</string>
     <string id="ColorGreen">Green</string>
+    <string id="ColorYellow">Yellow</string>
+    
 </strings>

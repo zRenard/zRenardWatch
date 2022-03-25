@@ -1,27 +1,28 @@
-using Toybox.Application;
-using Toybox.WatchUi;
+import Toybox.Application;
+import Toybox.Lang;
+import Toybox.WatchUi;
 
 class zRenardWatchApp extends Application.AppBase {
 
-    function initialize() {
+    public function initialize() {
         AppBase.initialize();
     }
 
     // onStart() is called on application start up
-    function onStart(state) {
+    public function onStart(state as Dictionary?) as Void {
     }
 
     // onStop() is called when your application is exiting
-    function onStop(state) {
+    public function onStop(state as Dictionary?) as Void {
     }
 
     // Return the initial view of your application here
-    function getInitialView() {
-        return [ new zRenardWatchView() ];
+    public function getInitialView() as Array<Views or InputDelegates>? {
+        return [ new $.zRenardWatchView() ] as Array<Views>;
     }
 
     // New app settings have been received so trigger a UI update
-    function onSettingsChanged() {
+    public function onSettingsChanged() {
         WatchUi.requestUpdate();
     }
 
