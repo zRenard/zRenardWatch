@@ -169,11 +169,11 @@
         <entry filename="Rez" id="24" lineNum="12" parent="globals/Rez/Fonts" pc="268439341" symbol="&lt;init&gt;"/>
         <entry filename="Rez" id="25" lineNum="17" parent="globals/Rez/JsonData" pc="268439343" symbol="&lt;init&gt;"/>
         <entry filename="Rez" id="26" lineNum="26" parent="globals/Rez/Layouts" pc="268439241" symbol="WatchFace"/>
-        <entry filename="Rez" id="26" lineNum="29" parent="globals/Rez/Layouts" pc="268439253" symbol="WatchFace"/>
-        <entry filename="Rez" id="26" lineNum="31" parent="globals/Rez/Layouts" pc="268439277" symbol="WatchFace"/>
+        <entry filename="Rez" id="26" lineNum="28" parent="globals/Rez/Layouts" pc="268439253" symbol="WatchFace"/>
+        <entry filename="Rez" id="26" lineNum="30" parent="globals/Rez/Layouts" pc="268439277" symbol="WatchFace"/>
         <entry filename="Rez" id="27" lineNum="19" parent="globals/Rez/Layouts" pc="268439342" symbol="&lt;init&gt;"/>
-        <entry filename="Rez" id="28" lineNum="36" parent="globals/Rez/Menus" pc="268439340" symbol="&lt;init&gt;"/>
-        <entry filename="Rez" id="29" lineNum="38" parent="globals/Rez/Strings" pc="268439344" symbol="&lt;init&gt;"/>
+        <entry filename="Rez" id="28" lineNum="35" parent="globals/Rez/Menus" pc="268439340" symbol="&lt;init&gt;"/>
+        <entry filename="Rez" id="29" lineNum="37" parent="globals/Rez/Strings" pc="268439344" symbol="&lt;init&gt;"/>
         <entry filename="Rez" id="30" lineNum="1" parent="globals/Rez" pc="268439315" symbol="&lt;init&gt;"/>
         <entry filename="Rez" id="30" lineNum="1" parent="globals/Rez" pc="268439315" symbol="&lt;init&gt;"/>
     </pcToLineNum>
@@ -320,7 +320,7 @@
         <entry arg="true" endPc="268439057" name="state" stackId="1" startPc="268439053"/>
         <entry endPc="268439169" name="dictionary" stackId="1" startPc="268439129"/>
         <entry arg="true" endPc="268439240" name="dc" stackId="1" startPc="268439171"/>
-        <entry endPc="268439293" name="rez_cmp_local_custom_drawable_14803137732511170721" stackId="2" startPc="268439253"/>
+        <entry endPc="268439293" name="rez_cmp_local_custom_drawable_14727700061839809822" stackId="2" startPc="268439253"/>
         <entry arg="true" endPc="268439294" name="dc" stackId="1" startPc="268439241"/>
     </localVars>
     <annotations>

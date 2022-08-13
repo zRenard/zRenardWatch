@@ -29,7 +29,9 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Set inactivity circle color
 
 ## History
-
+* 1.6.1
+	* (**new**) Add new devices 955/Solar, 7X, 255, 745
+	* (**new**) Add support to the new SDK
 * 1.6.0
 	* (**new**) New medium size font option. https://github.com/zRenard/zRenardWatch/issues/6
 	* (**new**) New yellow color. https://github.com/zRenard/zRenardWatch/issues/10

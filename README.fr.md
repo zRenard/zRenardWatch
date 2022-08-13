@@ -31,7 +31,9 @@ Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a9
 * Couleur du cercle d'inactivité.
 
 ## Historique des version
-
+* 1.6.1
+	* (**nouveautés**) Ajout des nouvelles montres 955/Solar, 7X, 255, 745
+	* (**nouveautés**) Support du nouveau SDK
 * 1.6.0
 	* (**nouveautés**) Ajout de la police de taille intermédiaire. https://github.com/zRenard/zRenardWatch/issues/6
 	* (**nouveautés**) Ajout de la couleur jaune. https://github.com/zRenard/zRenardWatch/issues/10
