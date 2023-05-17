@@ -1,19 +1,24 @@
-import Toybox.WatchUi;
-import Toybox.Graphics;
-import Toybox.System;
-import Toybox.Time;
-import Toybox.Time.Gregorian;
-import Toybox.Lang;
-import Toybox.Application;
-import Toybox.ActivityMonitor;
+using Toybox.WatchUi;
+using Toybox.Graphics;
+using Toybox.System;
+using Toybox.Time;
+using Toybox.Time.Gregorian;
+using Toybox.Lang;
+using Toybox.Application;
+using Toybox.ActivityMonitor;
+using Toybox.Weather;
+
+var weatherIcons = {};
 
 class zRenardWatchView extends WatchUi.WatchFace {
-    var ico_msg = Application.loadResource(Rez.Drawables.id_msg);
-    var ico_charge = Application.loadResource(Rez.Drawables.id_charge);
-	var ico_move = Application.loadResource(Rez.Drawables.id_move);
-	var sleepMode = false;
-	var font_vlarge = Application.loadResource(Rez.Fonts.id_font_vlarge);
-	var font_medium = Application.loadResource(Rez.Fonts.id_font_medium);
+    hidden var ico_msg = WatchUi.loadResource(Rez.Drawables.id_msg);
+    hidden var ico_charge = WatchUi.loadResource(Rez.Drawables.id_charge);
+	hidden var ico_move = WatchUi.loadResource(Rez.Drawables.id_move);
+	hidden var sleepMode = false;
+	hidden var font_vlarge = WatchUi.loadResource(Rez.Fonts.id_font_vlarge);
+	hidden var font_medium = WatchUi.loadResource(Rez.Fonts.id_font_medium);
+	hidden var delayedUpdate = 0; // First time we run, we get weather
+	hidden var weatherCondition = -1;       
 
     public function initialize() {
         WatchFace.initialize();    	
@@ -30,30 +35,37 @@ class zRenardWatchView extends WatchUi.WatchFace {
 
     // Update the view
     function onUpdate(dc) {
-    	var myApp = Application.getApp();
     	var battery = (System.getSystemStats().battery + 0.5).toNumber();
     	var width = dc.getWidth();
     	var height = dc.getHeight();
-    	var bgC = readKeyInt(myApp,"BackgroundColor",0x000000);
-    	var fgC = readKeyInt(myApp,"ForegroundColor",0xFFFFFF);
-	    var fgHC = readKeyInt(myApp,"ForegroundColorHours",0xFFFFFF);
-	    var fgMC = readKeyInt(myApp,"ForegroundColorMinutes",0xFFFFFF);
-    	var hlC = readKeyInt(myApp,"HighLightColor",0xFF5500);
-	    var fontSize = readKeyInt(myApp,"FontSize",1);
-		var showNotification = readKeyBoolean(myApp,"ShowNotification",true);
-		var sleepMode = readKeyBoolean(myApp,"UseSleepMode",false);
-		var ultraSleepMode = readKeyBoolean(myApp,"UltraSleepMode",false);
-		var batteryLevel = readKeyInt(myApp,"BatteryLevel",30);
-		var batteryLevelCritical = readKeyInt(myApp,"BatteryLevelCritical",15);
-	    var showMove = readKeyBoolean(myApp,"ShowMove",true);
-	    var moveDisplayType = readKeyInt(myApp,"MoveDisplayType",1);
-		var moveCircleColor = readKeyInt(myApp,"MoveCircleColor",0xFFFFFF);
-		var moveCircleWidth = readKeyInt(myApp,"MoveCircleWidth",2);
+    	var bgC = Application.Properties.getValue("BackgroundColor");
+    	var fgC = Application.Properties.getValue("ForegroundColor");
+	    var fgHC = Application.Properties.getValue("ForegroundColorHours");
+	    var fgMC = Application.Properties.getValue("ForegroundColorMinutes");
+    	var hlC = Application.Properties.getValue("HighLightColor");
+	    var fontSize = Application.Properties.getValue("FontSize");
+		var sleepMode = Application.Properties.getValue("UseSleepMode");
+		var ultraSleepMode = Application.Properties.getValue("UltraSleepMode");
+		var batteryLevel = Application.Properties.getValue("BatteryLevel");
+		var batteryLevelCritical = Application.Properties.getValue("BatteryLevelCritical");
+	    var showMove = Application.Properties.getValue("ShowMove");
+	    var moveDisplayType = Application.Properties.getValue("MoveDisplayType");
+		var moveCircleColor = Application.Properties.getValue("MoveCircleColor");
+		var moveCircleWidth = Application.Properties.getValue("MoveCircleWidth");
 		
     	var offSetBigFont = 0;
     	var offSetBigFontNotif = 0;
     	var moveLevel = ActivityMonitor.getInfo().moveBarLevel;
-    	
+		
+		var showWeather = Application.Properties.getValue("ShowWeather");
+        // Update weather every X minutes
+        var delayedUpdateMax = 5; //Application.Properties.getValue("WeatherRefreshRateMinutes")*60;
+      	// Ensure that we reduce current delay
+      	// On reverse, it's not necessary, we will update 1 time more quicker, not a big deal
+      	if (delayedUpdate>delayedUpdateMax) { delayedUpdate=delayedUpdateMax; }
+        var weatherConditionDay = Application.Properties.getValue("WeatherDay");
+ 		var nowText = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+ 		    	
     	if (fontSize==3) { // Big
     		offSetBigFont = 18;
     		offSetBigFontNotif = 10;
@@ -65,6 +77,26 @@ class zRenardWatchView extends WatchUi.WatchFace {
     		offSetBigFontNotif = 0;
     	}
     	
+    	if (showWeather) { // compute weather only if needed
+        	if (delayedUpdate==0 || weatherCondition==-1) {
+		        var weather = Weather.getDailyForecast();
+		        if (weather!= null) {	
+		        	if (weatherConditionDay==3) { // Smart way to get weather
+		        	 if (nowText.hour.toNumber()<12) { // Before noon
+		        	 	weatherCondition=weather[1].condition; // Today weather
+		        	 } else {
+		        	 	weatherCondition=weather[2].condition; // Tommorow weather
+		        	 }
+		        	} else { // Otherwise we rely on settings (Today or Tommorow)
+		        		weatherCondition=weather[weatherConditionDay].condition;
+		        	}
+		        }
+		        delayedUpdate=delayedUpdateMax;
+	        } else { // Used to reduce the update rate of the weather
+	         	delayedUpdate=delayedUpdate-1;
+		    }  
+		}
+		
         if (dc has :setAntiAlias ) { dc.setAntiAlias(true); }
 	    dc.setColor(bgC,bgC);
         dc.clear();
@@ -72,8 +104,6 @@ class zRenardWatchView extends WatchUi.WatchFace {
     		 ( sleepMode && !ultraSleepMode ) ||
     		 ( sleepMode && (ultraSleepMode && battery>batteryLevelCritical))) {       
 			dc.setColor(fgC,Graphics.COLOR_TRANSPARENT);  		
-	 		var now = new Time.Moment(Time.today().value());
-	 		var nowText = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 			var hours = nowText.hour.toNumber();
 	        if (!System.getDeviceSettings().is24Hour) {
 				if (hours > 12) {
@@ -120,6 +150,20 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		
 		        if (System.getSystemStats().charging ) {
 					dc.drawBitmap((width / 2)-20/2, height-20, ico_charge);
+		        } else {
+		         if (showWeather) {
+		         	var defaultConditionIcon = 53; // default icon ? for unknow weather
+		         	var conditionIcon = weatherCondition;
+		         	if (Application.Properties.getValue("WeatherIconColor")==0) { //Black icon
+		         		conditionIcon=conditionIcon+100;
+		         		defaultConditionIcon=defaultConditionIcon+100;
+		         	}
+		         	var ico_weather = weatherIcons.get(conditionIcon);
+		         	if (ico_weather==null) {
+						ico_weather = weatherIcons.get(defaultConditionIcon);
+					}
+					dc.drawBitmap((width / 2)-20/2, height-20, ico_weather);		         
+		         }
 		        }
 
 				if (showMove && moveLevel>0) {
@@ -166,12 +210,12 @@ class zRenardWatchView extends WatchUi.WatchFace {
 					}
 				}		        
 		        
-		        if (showNotification) {
+		        if (Application.Properties.getValue("ShowNotification")) {
 					var notification = System.getDeviceSettings().notificationCount;
 					if (notification > 0) {
 						dc.drawBitmap((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg);
 						dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-						dc.drawText(width / 2+50, 34-offSetBigFontNotif, Graphics.FONT_TINY, notification, Graphics.TEXT_JUSTIFY_CENTER);
+						dc.drawText(width / 2+50, 34-offSetBigFontNotif, Graphics.FONT_TINY, notification.toString(), Graphics.TEXT_JUSTIFY_CENTER);
 					}
 				}
 			}
@@ -193,27 +237,4 @@ class zRenardWatchView extends WatchUi.WatchFace {
     function onEnterSleep() {
 		sleepMode = true;
     }
-    
-    function readKeyInt(myApp,key,thisDefault) {
-	    var value = myApp.getProperty(key);
-	    if(value == null || !(value instanceof Number)) {
-	        if(value != null) {
-	            value = value.toNumber();
-	        } else {
-	            value = thisDefault;
-	        }
-	    }
-	    return value;
-   }
-    function readKeyBoolean(myApp,key,thisDefault) {
-	    var value = myApp.getProperty(key);
-	    if(value == null || !(value instanceof Boolean)) {
-	        if(value != null) {
-	            value = true;
-	        } else {
-	            value = thisDefault;
-	        }
-	    }
-	    return value;
-   }
 }

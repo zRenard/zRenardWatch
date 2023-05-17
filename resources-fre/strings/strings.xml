@@ -18,6 +18,16 @@
     <string id="BatteryLevelTitle">Le niveau minimum de la batterie qui declanche l'affichage</string>
 	<string id="BatteryLevelError">Le niveau doit etre entre 5 et 95</string>
 
+	<string id="ShowWeatherTitle">Afficher les conditions méteo</string>
+	<string id="WeatherIconColorTitle">Couleur de l'icone méteo</string>
+	<string id="WeatherDayTitle">Condition méteo à afficher</string>
+    <string id="WeatherDayToday">Aujourd'hui</string>
+    <string id="WeatherDayTomorrow">Demain</string>
+    <string id="WeatherDaySmart">Intelligent (Aujourd'hui jusqu'a midi, puis Demain)</string>
+
+    <string id="WeatherRefreshRateMinutesTitle">Delai de mise à jour de la méteo (en minutes)</string>
+	<string id="WeatherRefreshRateMinutesError">Le delai doit être compris entre 5 et 240 minutes (4h)</string>
+
     <string id="BatteryLevelCriticalTitle">Le niveau minimum de la batterie qui declanche l'affichage d'une alerte</string>
 	<string id="BatteryLevelCriticalError">Le niveau doit etre entre 2 et 30</string>
 

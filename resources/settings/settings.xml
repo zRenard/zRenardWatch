@@ -81,6 +81,29 @@
         <settingConfig type="boolean" />
     </setting>
 
+    <setting propertyKey="@Properties.ShowWeather" title="@Strings.ShowWeatherTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
+	<setting propertyKey="@Properties.WeatherIconColor" title="@Strings.WeatherIconColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.ColorBlack</listEntry>
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+        </settingConfig>
+    </setting>    
+
+	<setting propertyKey="@Properties.WeatherDay" title="@Strings.WeatherDayTitle">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.WeatherDayToday</listEntry>
+            <listEntry value="2">@Strings.WeatherDayTomorrow</listEntry>
+            <listEntry value="3">@Strings.WeatherDaySmart</listEntry>
+        </settingConfig>
+    </setting>    
+
+    <setting propertyKey="@Properties.WeatherRefreshRateMinutes" title="@Strings.WeatherRefreshRateMinutesTitle">
+        <settingConfig type="numeric" min="5" max="240" errorMessage="@Strings.WeatherRefreshRateMinutesError"/>
+    </setting>
+
     <setting propertyKey="@Properties.BatteryLevel" title="@Strings.BatteryLevelTitle">
         <settingConfig type="numeric" min="5" max="95" errorMessage="@Strings.BatteryLevelError"/>
     </setting>

@@ -15,9 +15,11 @@ Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a9
 * Heure
 * Date
 * Cercle d'inactivité
+* Icones Méteo
 
 ## Affichage
 * Notifications (On/Off)
+* Méteo (On/Off)
 * Mode économie (On/Off). En mode économie, uniquement l'horloge  est affichée.
 * Option pour utiliser différentes polices pour l'heure (petite, moyenne, grande)
 
@@ -31,6 +33,8 @@ Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a9
 * Couleur du cercle d'inactivité.
 
 ## Historique des version
+* 1.7.0
+	* (**nouveautés**) Ajout de la méteo sous forme d'icones
 * 1.6.1
 	* (**nouveautés**) Ajout des nouvelles montres 955/Solar, 7X, 255, 745
 	* (**nouveautés**) Support du nouveau SDK
