@@ -2,6 +2,7 @@
 
     <setting propertyKey="@Properties.BackgroundColor" title="@Strings.BackgroundColorTitle">
         <settingConfig type="list">
+        	<listEntry value="-1">@Strings.ColorFree</listEntry>
             <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
             <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
@@ -11,12 +12,20 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
-            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
+            <listEntry value="0x30d5c8">@Strings.ColorTurquoise</listEntry>
+            <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>            
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0x99EE99">@Strings.ColorLightGreen</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>            
         </settingConfig>
     </setting>
-
+	<setting propertyKey="@Properties.FreeBackgroundColor" title="@Strings.BackgroundColorTitle">
+		<settingConfig type="alphaNumeric" />
+	</setting>
+	
 	<setting propertyKey="@Properties.ForegroundColorHours" title="@Strings.ForegroundColorHoursTitle">
         <settingConfig type="list">
+        	<listEntry value="-1">@Strings.ColorFree</listEntry>
             <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
             <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
@@ -26,12 +35,20 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0x30d5c8">@Strings.ColorTurquoise</listEntry>
             <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0x99EE99">@Strings.ColorLightGreen</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>            
         </settingConfig>
     </setting>
+	<setting propertyKey="@Properties.FreeForegroundColorHours" title="@Strings.ForegroundColorHoursTitle">
+		<settingConfig type="alphaNumeric" />
+	</setting> 
 
     <setting propertyKey="@Properties.ForegroundColorMinutes" title="@Strings.ForegroundColorMinutesTitle">
         <settingConfig type="list">
+        	<listEntry value="-1">@Strings.ColorFree</listEntry>
             <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
             <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
@@ -41,12 +58,20 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0x30d5c8">@Strings.ColorTurquoise</listEntry>            
             <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0x99EE99">@Strings.ColorLightGreen</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>            
         </settingConfig>
     </setting>
+	<setting propertyKey="@Properties.FreeForegroundColorMinutes" title="@Strings.ForegroundColorMinutesTitle">
+		<settingConfig type="alphaNumeric" />
+	</setting> 
 
     <setting propertyKey="@Properties.HighLightColor" title="@Strings.HighLightColorTitle">
         <settingConfig type="list">
+        	<listEntry value="-1">@Strings.ColorFree</listEntry>
             <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
             <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
@@ -56,9 +81,16 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0x30d5c8">@Strings.ColorTurquoise</listEntry>            
             <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0x99EE99">@Strings.ColorLightGreen</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>            
         </settingConfig>
     </setting>
+	<setting propertyKey="@Properties.FreeHighLightColor" title="@Strings.HighLightColorTitle">
+		<settingConfig type="alphaNumeric" />
+	</setting> 
     
 	<setting propertyKey="@Properties.FontSize" title="@Strings.FontSizeTitle">
         <settingConfig type="list">
@@ -70,6 +102,11 @@
 
  
     <setting propertyKey="@Properties.ShowNotification" title="@Strings.ShowNotificationTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
+
+    <setting propertyKey="@Properties.ShowYear" title="@Strings.ShowYearTitle">
         <settingConfig type="boolean" />
     </setting>
 
@@ -104,6 +141,17 @@
         <settingConfig type="numeric" min="5" max="240" errorMessage="@Strings.WeatherRefreshRateMinutesError"/>
     </setting>
 
+    <setting propertyKey="@Properties.WeatherIconFactor" title="@Strings.WeatherIconFactorTitle">
+        <settingConfig type="numeric" min="1" max="2.0" errorMessage="@Strings.WeatherIconFactorError"/>
+    </setting>
+
+	<setting propertyKey="@Properties.WeatherIconLocation" title="@Strings.WeatherIconLocationTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Bottom</listEntry>
+            <listEntry value="1">@Strings.BottomHour</listEntry>
+        </settingConfig>
+    </setting>    
+
     <setting propertyKey="@Properties.BatteryLevel" title="@Strings.BatteryLevelTitle">
         <settingConfig type="numeric" min="5" max="95" errorMessage="@Strings.BatteryLevelError"/>
     </setting>
@@ -121,8 +169,10 @@
             <listEntry value="3">@Strings.MoveBottomIcons</listEntry>
         </settingConfig>
     </setting>    
+    
     <setting propertyKey="@Properties.MoveCircleColor" title="@Strings.MoveCircleTitle">
         <settingConfig type="list">
+        	<listEntry value="-1">@Strings.ColorFree</listEntry>
             <listEntry value="0x000000">@Strings.ColorBlack</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColorWhite</listEntry>
             <listEntry value="0x555555">@Strings.ColorDarkGray</listEntry>
@@ -132,9 +182,17 @@
             <listEntry value="0x00FF00">@Strings.ColorGreen</listEntry>
             <listEntry value="0xFF5500">@Strings.ColorOrange</listEntry>
             <listEntry value="0x00FFFF">@Strings.ColorCyan</listEntry>
+            <listEntry value="0x30d5c8">@Strings.ColorTurquoise</listEntry>
             <listEntry value="0xFFF200">@Strings.ColorYellow</listEntry>
+            <listEntry value="0xAA00FF">@Strings.ColorPurple</listEntry>
+            <listEntry value="0x99EE99">@Strings.ColorLightGreen</listEntry>
+            <listEntry value="0xFF00FF">@Strings.ColorPink</listEntry>            
         </settingConfig>
     </setting>
+	<setting propertyKey="@Properties.FreeMoveCircleColor" title="@Strings.MoveCircleTitle">
+		<settingConfig type="alphaNumeric" />
+	</setting> 
+    
     <setting propertyKey="@Properties.MoveCircleWidth" title="@Strings.MoveCircleWidthTitle">
         <settingConfig type="numeric" min="1" max="6" errorMessage="@Strings.MoveCircleWidthError"/>
     </setting>

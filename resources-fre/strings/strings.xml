@@ -1,11 +1,13 @@
 <strings>
     <string id="AppName">zRenardWatch</string>
 
+    <string id="ColorFree">Libre (entrez un code dessous)</string>
     <string id="BackgroundColorTitle">Couleur de fond</string>
     <string id="ForegroundColorTitle">Couleur du texte</string>
     <string id="ForegroundColorHoursTitle">Couleur du texte des heures</string>
     <string id="ForegroundColorMinutesTitle">Couleur du texte des minutes</string>
     <string id="HighLightColorTitle">Couleur de la date</string>
+    <string id="ShowYearTitle">Affiche l'année dans la date</string>
 
     <string id="FontSizeTitle">Taille de la police de l'heure</string>
     <string id="Small">Petite</string>
@@ -24,9 +26,13 @@
     <string id="WeatherDayToday">Aujourd'hui</string>
     <string id="WeatherDayTomorrow">Demain</string>
     <string id="WeatherDaySmart">Intelligent (Aujourd'hui jusqu'a midi, puis Demain)</string>
-
     <string id="WeatherRefreshRateMinutesTitle">Delai de mise à jour de la méteo (en minutes)</string>
 	<string id="WeatherRefreshRateMinutesError">Le delai doit être compris entre 5 et 240 minutes (4h)</string>
+    <string id="WeatherIconFactorTitle">Facteur de zoom de l'icone météo</string>
+	<string id="WeatherIconFactorError">la valeur doit etre entre 1 et 1.8</string>
+	<string id="WeatherIconLocationTitle">Position de l'icone météo</string>
+	<string id="Bottom">Centré en bas</string>
+	<string id="BottomHour">Sous l'heure</string>
 
     <string id="BatteryLevelCriticalTitle">Le niveau minimum de la batterie qui declanche l'affichage d'une alerte</string>
 	<string id="BatteryLevelCriticalError">Le niveau doit etre entre 2 et 30</string>
@@ -50,5 +56,8 @@
     <string id="ColorCyan">Cyan</string>
     <string id="ColorGreen">Vert</string>
     <string id="ColorYellow">Jaune</string>
-        
+    <string id="ColorPurple">Violet</string>
+    <string id="ColorLightGreen">Vert clair</string>
+    <string id="ColorPink">Rose</string>
+    <string id="ColorTurquoise">Turquoise</string>            
 </strings>

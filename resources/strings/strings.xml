@@ -1,11 +1,13 @@
 <strings>
 	<string id="AppName">zRenardWatch</string>
 
+    <string id="ColorFree">Free (enter rgb code bellow)</string>
     <string id="BackgroundColorTitle">Background Color</string>
     <string id="ForegroundColorTitle">Foreground Color</string>
     <string id="ForegroundColorHoursTitle">Foreground Color for Hours</string>
     <string id="ForegroundColorMinutesTitle">Foreground Color for Minutes</string>
     <string id="HighLightColorTitle">Date Color</string>
+    <string id="ShowYearTitle">Show year in date</string>
     
     <string id="FontSizeTitle">Hours and minutes font size</string>
     <string id="Small">Small</string>
@@ -26,7 +28,12 @@
     <string id="WeatherDaySmart">Smart (Today before noon, Tomorrow after)</string>	
     <string id="WeatherRefreshRateMinutesTitle">Minimum refresh rate for weather (in minutes)</string>
 	<string id="WeatherRefreshRateMinutesError">Must be between 5 and 240 minutes (4h)</string>
-            
+    <string id="WeatherIconFactorTitle">Zoom factor of the weather icon</string>
+	<string id="WeatherIconFactorError">Must be between 1 and 1.8</string>
+	<string id="WeatherIconLocationTitle">Position of the weather icon</string>
+	<string id="Bottom">Center at the bottom</string>
+	<string id="BottomHour">Bellow hour</string>
+
     <string id="BatteryLevelCriticalTitle">Minimum Battery Level to display a warning</string>
 	<string id="BatteryLevelCriticalError">Must be between 2 and 30</string>
 
@@ -48,6 +55,9 @@
     <string id="ColorOrange">Orange</string>
     <string id="ColorCyan">Cyan</string>
     <string id="ColorGreen">Green</string>
-    <string id="ColorYellow">Yellow</string>
-    
+    <string id="ColorYellow">Yellow</string>    
+    <string id="ColorPurple">Purple</string>
+    <string id="ColorLightGreen">Light Green</string>
+    <string id="ColorPink">Pink</string>
+    <string id="ColorTurquoise">Turquoise</string>
 </strings>

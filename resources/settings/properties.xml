@@ -1,13 +1,28 @@
 <properties>
     <property id="BackgroundColor" type="number">0x000000</property>
+    <property id="FreeBackgroundColor" type="string">0x000000</property>
+
     <property id="ForegroundColor" type="number">0xFFFFFF</property>
+    <property id="FreeForegroundColor" type="string">0xFFFFFF</property>
+
     <property id="ForegroundColorHours" type="number">0xFFFFFF</property>
+    <property id="FreeForegroundColorHours" type="string">0xFFFFFF</property>
+
     <property id="ForegroundColorMinutes" type="number">0xFFFFFF</property>
+    <property id="FreeForegroundColorMinutes" type="string">0xFFFFFF</property>
+
+    <property id="ShowYear" type="boolean">true</property>
     <property id="ShowWeather" type="boolean">true</property>
+
     <property id="WeatherIconColor" type="number">1</property>
     <property id="WeatherDay" type="number">2</property>
     <property id="WeatherRefreshRateMinutes" type="number">30</property>
+    <property id="WeatherIconFactor" type="float">1</property>
+    <property id="WeatherIconLocation" type="number">0</property>
+
     <property id="HighLightColor" type="number">0xFF5500</property>
+    <property id="FreeHighLightColor" type="string">0xFF5500</property>
+
     <property id="MoveDisplayType" type="number">1</property>
     <property id="FontSize" type="number">1</property>
     <property id="ShowNotification" type="boolean">true</property>
@@ -17,6 +32,9 @@
     <property id="BatteryLevelCritical" type="number">15</property>
     <property id="ShowMove" type="boolean">true</property>
     <property id="MoveDisplayType" type="number">1</property>
+
     <property id="MoveCircleColor" type="number">0xFFFFFF</property>
+    <property id="FreeMoveCircleColor" type="string">0xFFFFFF</property>
+    
     <property id="MoveCircleWidth" type="number">2</property>
 </properties>

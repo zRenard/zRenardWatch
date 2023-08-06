@@ -33,6 +33,10 @@ Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a9
 * Couleur du cercle d'inactivité.
 
 ## Historique des version
+* 1.7.1
+	* (**nouveautés**) Couleurs libre (Vous pouvez personaliser les couleurs)
+	* (**nouveautés**) Ajout d'une options pour positionner la météo
+	* (**nouveautés**) Ajout du zomm de la méteo sous forme d'icone
 * 1.7.0
 	* (**nouveautés**) Ajout de la méteo sous forme d'icones
 * 1.6.1

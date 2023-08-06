@@ -31,6 +31,10 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Set inactivity circle color
 
 ## History
+* 1.7.1
+	* (**new**) Free colors (you can define your own colors)
+	* (**new**) Add position of the weather icons
+	* (**new**) Add zoom/size of the weather icons
 * 1.7.0
 	* (**new**) Add weather icons
 * 1.6.1

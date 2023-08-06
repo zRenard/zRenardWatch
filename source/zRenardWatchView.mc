@@ -39,10 +39,15 @@ class zRenardWatchView extends WatchUi.WatchFace {
     	var width = dc.getWidth();
     	var height = dc.getHeight();
     	var bgC = Application.Properties.getValue("BackgroundColor");
+    	if (bgC == -1) {  bgC = Application.Properties.getValue("FreeBackgroundColor").toLongWithBase(16); }
     	var fgC = Application.Properties.getValue("ForegroundColor");
+    	if (fgC == -1) {  fgC = Application.Properties.getValue("FreeForegroundColor").toLongWithBase(16); }
 	    var fgHC = Application.Properties.getValue("ForegroundColorHours");
+    	if (fgHC == -1) {  fgHC = Application.Properties.getValue("FreeForegroundColorHours").toLongWithBase(16); }
 	    var fgMC = Application.Properties.getValue("ForegroundColorMinutes");
+    	if (fgMC == -1) {  fgMC = Application.Properties.getValue("FreeForegroundColorMinutes").toLongWithBase(16); }
     	var hlC = Application.Properties.getValue("HighLightColor");
+    	if (hlC == -1) {  hlC = Application.Properties.getValue("FreeHighLightColor").toLongWithBase(16); }
 	    var fontSize = Application.Properties.getValue("FontSize");
 		var sleepMode = Application.Properties.getValue("UseSleepMode");
 		var ultraSleepMode = Application.Properties.getValue("UltraSleepMode");
@@ -51,6 +56,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 	    var showMove = Application.Properties.getValue("ShowMove");
 	    var moveDisplayType = Application.Properties.getValue("MoveDisplayType");
 		var moveCircleColor = Application.Properties.getValue("MoveCircleColor");
+    	if (moveCircleColor == -1) {  moveCircleColor = Application.Properties.getValue("FreeMoveCircleColor").toLongWithBase(16); }
 		var moveCircleWidth = Application.Properties.getValue("MoveCircleWidth");
 		
     	var offSetBigFont = 0;
@@ -138,7 +144,11 @@ class zRenardWatchView extends WatchUi.WatchFace {
 			dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
 			if (!sleepMode || (sleepMode && !sleepMode)) {
 				// Date if not in sleep mode (or sleep mode desactivated)
-				dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
+				if (Application.Properties.getValue("ShowYear")) {
+					dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
+				} else { 
+					dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month, Graphics.TEXT_JUSTIFY_CENTER);
+				}
 	        	if (!System.getSystemStats().charging && battery <=batteryLevelCritical) {
 		        	dc.setColor(hlC, hlC);
 	    	    	dc.fillRectangle(0, 3*height/4+4+offSetBigFont, width, 20);
@@ -149,7 +159,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        }
 		
 		        if (System.getSystemStats().charging ) {
-					dc.drawBitmap((width / 2)-20/2, height-20, ico_charge);
+					dc.drawBitmap((width / 2)-20/2, height-23, ico_charge);
 		        } else {
 		         if (showWeather) {
 		         	var defaultConditionIcon = 53; // default icon ? for unknow weather
@@ -162,7 +172,17 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		         	if (ico_weather==null) {
 						ico_weather = weatherIcons.get(defaultConditionIcon);
 					}
-					dc.drawBitmap((width / 2)-20/2, height-20, ico_weather);		         
+					//dc.drawBitmap((width / 2)-20/2, height-20-3, ico_weather);
+					var ico_size=20*Application.Properties.getValue("WeatherIconFactor");
+					if (Application.Properties.getValue("WeatherIconLocation")==0) {							         
+						dc.drawScaledBitmap((width / 2)-ico_size/2,height-ico_size/2-13,ico_size,ico_size,ico_weather);
+					} else {
+						var weatherOffset=0;
+						if (fontSize==3) { weatherOffset = 20; } // Big font
+						if (fontSize==2) { weatherOffset = 17; } // Medium
+						if (fontSize==1) { weatherOffset = 3; } // Small
+						dc.drawScaledBitmap((width / 2)-50-ico_size/2,(height/2)+weatherOffset-ico_size/2+20,ico_size,ico_size,ico_weather);
+					}
 		         }
 		        }
 
