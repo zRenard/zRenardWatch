@@ -32,10 +32,10 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 
 ## History
 * 1.7.1
-	* (**new**) Free colors (you can define your own colors)
+	* (**new**) Free colors (you can define your own colors) https://github.com/zRenard/zRenardWatch/issues/12
 	* (**new**) Add position of the weather icons
 	* (**new**) Add zoom/size of the weather icons
-	* (**new**) Add option to remove year of the date
+	* (**new**) Add option to remove year of the date https://github.com/zRenard/zRenardWatch/issues/13
 * 1.7.0
 	* (**new**) Add weather icons
 * 1.6.1

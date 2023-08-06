@@ -34,10 +34,10 @@ Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a9
 
 ## Historique des version
 * 1.7.1
-	* (**nouveautés**) Couleurs libre (Vous pouvez personaliser les couleurs)
+	* (**nouveautés**) Couleurs libre (Vous pouvez personaliser les couleurs)  https://github.com/zRenard/zRenardWatch/issues/12
 	* (**nouveautés**) Ajout d'une option pour positionner la météo
 	* (**nouveautés**) Ajout du zoom de la méteo sous forme d'icone
-	* (**nouveautés**) Ajout d'une option pour supprimer l'année de la date
+	* (**nouveautés**) Ajout d'une option pour supprimer l'année de la date https://github.com/zRenard/zRenardWatch/issues/13
 * 1.7.0
 	* (**nouveautés**) Ajout de la méteo sous forme d'icones
 * 1.6.1
