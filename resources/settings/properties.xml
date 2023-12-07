@@ -14,11 +14,15 @@
     <property id="ShowYear" type="boolean">true</property>
     <property id="ShowWeather" type="boolean">true</property>
 
-    <property id="WeatherIconColor" type="number">1</property>
+    <property id="WeatherIconColor" type="number">0xFFFFFF</property>
     <property id="WeatherDay" type="number">2</property>
     <property id="WeatherRefreshRateMinutes" type="number">30</property>
     <property id="WeatherIconFactor" type="float">1</property>
     <property id="WeatherIconLocation" type="number">0</property>
+
+    <property id="RedShiftFlag" type="boolean">true</property>
+    
+    <property id="RedShiftStart" type="number">0</property>
 
     <property id="HighLightColor" type="number">0xFF5500</property>
     <property id="FreeHighLightColor" type="string">0xFF5500</property>

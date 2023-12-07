@@ -58,20 +58,119 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		var moveCircleColor = Application.Properties.getValue("MoveCircleColor");
     	if (moveCircleColor == -1) {  moveCircleColor = Application.Properties.getValue("FreeMoveCircleColor").toLongWithBase(16); }
 		var moveCircleWidth = Application.Properties.getValue("MoveCircleWidth");
-		
+		var redShiftFlag = Application.Properties.getValue("RedShiftFlag");
+
     	var offSetBigFont = 0;
     	var offSetBigFontNotif = 0;
     	var moveLevel = ActivityMonitor.getInfo().moveBarLevel;
 		
+		var redShift = false;
+		var redShiftColor = 0xAA0000;
 		var showWeather = Application.Properties.getValue("ShowWeather");
+        var weatherIconColor = Application.Properties.getValue("WeatherIconColor");
+        var notificationIconColor = 0xFFFFFF;
+        
+		// System.println("showWeather : " + showWeather);
+		// System.println("redShiftFlag : " + redShiftFlag);
+
+
         // Update weather every X minutes
-        var delayedUpdateMax = 5; //Application.Properties.getValue("WeatherRefreshRateMinutes")*60;
+        var delayedUpdateMax = Application.Properties.getValue("WeatherRefreshRateMinutes")*60;
       	// Ensure that we reduce current delay
       	// On reverse, it's not necessary, we will update 1 time more quicker, not a big deal
       	if (delayedUpdate>delayedUpdateMax) { delayedUpdate=delayedUpdateMax; }
         var weatherConditionDay = Application.Properties.getValue("WeatherDay");
  		var nowText = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
- 		    	
+
+		var hours = nowText.hour.toNumber();
+		// var minutes = nowText.min.toNumber();
+		
+		if (!(Toybox has :Weather)) {
+			showWeather=false;
+			Application.Properties.setValue("ShowWeather",false);
+		}
+
+        if (!System.getDeviceSettings().is24Hour) {
+			if (hours > 12) {
+				hours = hours - 12;
+			}
+		}
+		var myHours = Lang.format("$1$",[hours.format("%02d")]);
+		var myMinutes = Lang.format("$1$",[nowText.min.format("%02d")]);
+		var myDay = Lang.format("$1$",[nowText.day.format("%02d")]);
+		
+		var position=null;
+		var sunSet=null;
+		var sunRise=null;
+
+		if (Weather.getCurrentConditions()!=null) {
+			// If you use Simulator, don't forget to set the position in weather part
+			position = Weather.getCurrentConditions().observationLocationPosition;
+			if (position!=null) {
+				sunRise = Weather.getSunrise(position,Time.now());
+				sunSet =  Weather.getSunset(position,Time.now());
+			}
+		}
+
+		// var midnight = Time.today();
+
+		//  System.println("sunSet  " + sunSet.value());
+		//  System.println("Now     " + Time.now().value());
+		//  System.println("midnight" + midnight.value());
+		//  System.println("sunrise " + sunRise.value());
+
+		// System.println("sunSet " + Gregorian.info(sunSet, Time.FORMAT_MEDIUM).hour.toNumber() + ":"+ Gregorian.info(sunSet, Time.FORMAT_MEDIUM).min.toNumber());
+		// System.println("Now " + Gregorian.info(Time.now(), Time.FORMAT_MEDIUM).hour.toNumber() + ":"+ Gregorian.info(Time.now(), Time.FORMAT_MEDIUM).min.toNumber());
+		// System.println("sunrise " + Gregorian.info(sunRise, Time.FORMAT_MEDIUM).hour.toNumber() + ":"+ Gregorian.info(sunRise, Time.FORMAT_MEDIUM).min.toNumber());
+
+		// Sunset and Sunrise change after midnight, before it's the previsous sunrise, after it's the next sunrise.
+		// It's data for the day.
+		// if before midnight
+		//   if sunset <= now -> night shift
+		// else after midnight
+		//   if now <= sunrise -> night shift
+
+
+		if (redShiftFlag) {
+			// if (midnight.value()<=Time.now().value()) {
+			if (sunSet!=null && sunSet.value()<=Time.now().value()) {
+					redShift=true;
+				// }
+			} else {
+				if (sunRise!=null && Time.now().value()<=sunRise.value()) {
+					redShift=true;
+				}
+			}
+		} else {
+			redShift=false;
+		}
+
+		// System.println("redShift : " + redShift);
+
+		// System.println("sunrise " + Gregorian.info(sunRise, Time.FORMAT_MEDIUM).hour.toNumber());
+		// System.println("sunset " + Gregorian.info(sunSet, Time.FORMAT_MEDIUM).hour.toNumber());
+
+		//var redShiftStart = "23:20";
+		//var redShiftEnd = "23:30";
+		
+		// var redShiftStartHour = 0;
+		// var redShiftStartMinute = 43;
+ 		
+		// var redShiftEndHour = 0;
+		// var redShiftEndMinute = 45;
+		
+		// var redShift = redShiftFlag && hours>=redShiftStartHour && minutes>=redShiftStartMinute && hours<=redShiftEndHour && minutes<=redShiftEndMinute;
+		
+ 		if (redShift ) { // Red shift mode
+ 		// && redShiftStartHour>=hours && redShiftStartMinute>=minutes && redShiftEndHour<=hours && redShiftEndMinute<=minutes
+ 			bgC = 0x000000;
+ 			fgC = redShiftColor;
+ 			fgHC = redShiftColor;
+ 			fgMC = redShiftColor;
+ 			hlC = redShiftColor;
+ 			moveCircleColor = redShiftColor;
+ 		}
+ 		
     	if (fontSize==3) { // Big
     		offSetBigFont = 18;
     		offSetBigFontNotif = 10;
@@ -100,7 +199,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        delayedUpdate=delayedUpdateMax;
 	        } else { // Used to reduce the update rate of the weather
 	         	delayedUpdate=delayedUpdate-1;
-		    }  
+		    }
 		}
 		
         if (dc has :setAntiAlias ) { dc.setAntiAlias(true); }
@@ -109,18 +208,8 @@ class zRenardWatchView extends WatchUi.WatchFace {
    		if ( !sleepMode ||
     		 ( sleepMode && !ultraSleepMode ) ||
     		 ( sleepMode && (ultraSleepMode && battery>batteryLevelCritical))) {       
-			dc.setColor(fgC,Graphics.COLOR_TRANSPARENT);  		
-			var hours = nowText.hour.toNumber();
-	        if (!System.getDeviceSettings().is24Hour) {
-				if (hours > 12) {
-					hours = hours - 12;
-				}
-			}
-			
-			var myHours = Lang.format("$1$",[hours.format("%02d")]);
-			var myMinutes = Lang.format("$1$",[nowText.min.format("%02d")]);
-			var myDay = Lang.format("$1$",[nowText.day.format("%02d")]);
-		
+			dc.setColor(fgC,Graphics.COLOR_TRANSPARENT);
+					
 			// Hours
 			dc.setColor(fgHC,Graphics.COLOR_TRANSPARENT);
 			if (fontSize==3) { // Big
@@ -159,34 +248,54 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        }
 		
 		        if (System.getSystemStats().charging ) {
-					dc.drawBitmap((width / 2)-20/2, height-23, ico_charge);
-		        } else {
-		         if (showWeather) {
-		         	var defaultConditionIcon = 53; // default icon ? for unknow weather
-		         	var conditionIcon = weatherCondition;
-		         	if (Application.Properties.getValue("WeatherIconColor")==0) { //Black icon
-		         		conditionIcon=conditionIcon+100;
-		         		defaultConditionIcon=defaultConditionIcon+100;
-		         	}
-		         	var ico_weather = weatherIcons.get(conditionIcon);
-		         	if (ico_weather==null) {
+					if (redShift) { // Red shift mode
+						dc.drawBitmap2((width / 2)-20/2, height-23, ico_charge, {:tintColor => redShiftColor });
+					} else {
+						// TODO: Change to chargingIconColor (white by default)
+						dc.drawBitmap2((width / 2)-20/2, height-23, ico_charge, {:tintColor => weatherIconColor });
+					}
+		        } 
+				if (showWeather) {
+					var defaultConditionIcon = 53; // default icon ? for unknow weather
+					var conditionIcon = weatherCondition;
+					var ico_weather = weatherIcons.get(conditionIcon);
+					if (ico_weather==null) {
 						ico_weather = weatherIcons.get(defaultConditionIcon);
 					}
 					//dc.drawBitmap((width / 2)-20/2, height-20-3, ico_weather);
 					var ico_size=20*Application.Properties.getValue("WeatherIconFactor");
+					var icoFactor=Application.Properties.getValue("WeatherIconFactor");
+					var transform = new Graphics.AffineTransform();
+					//transform.rotate(angle);
+					//transform.translate(-10, -180);
+					transform.scale(icoFactor.toFloat(),icoFactor.toFloat());					
 					if (Application.Properties.getValue("WeatherIconLocation")==0) {							         
-						dc.drawScaledBitmap((width / 2)-ico_size/2,height-ico_size/2-13,ico_size,ico_size,ico_weather);
+						if (redShift) { // Red shift mode
+							dc.drawBitmap2((width / 2)-ico_size/2, height-ico_size/2-13, ico_weather, { :transform => transform, :tintColor => redShiftColor });
+						} else {
+							dc.drawBitmap2((width / 2)-ico_size/2, height-ico_size/2-13, ico_weather, { :transform => transform, :tintColor => weatherIconColor });
+						}
 					} else {
 						var weatherOffset=0;
 						if (fontSize==3) { weatherOffset = 20; } // Big font
 						if (fontSize==2) { weatherOffset = 17; } // Medium
 						if (fontSize==1) { weatherOffset = 3; } // Small
-						dc.drawScaledBitmap((width / 2)-50-ico_size/2,(height/2)+weatherOffset-ico_size/2+20,ico_size,ico_size,ico_weather);
+						if (redShift) { // Red shift mode
+							dc.drawBitmap2((width / 2)-50-ico_size/2, (height/2)+weatherOffset-ico_size/2+20, ico_weather, { :transform => transform, :tintColor => redShiftColor });
+						} else {
+							dc.drawBitmap2((width / 2)-50-ico_size/2, (height/2)+weatherOffset-ico_size/2+20, ico_weather, { :transform => transform, :tintColor => weatherIconColor });
+						}
 					}
-		         }
-		        }
+				}
+		        
 
 				if (showMove && moveLevel>0) {
+					// TODO: Change to moveIconColor (white by default)
+					var moveIconOptions =  {:tintColor => weatherIconColor };
+					if (redShift) { // Red shift mode
+						moveIconOptions =  {:tintColor => redShiftColor };
+					}
+
 					if (moveDisplayType==1) {
 						dc.setPenWidth(moveCircleWidth);
 						dc.setColor(moveCircleColor, Graphics.COLOR_TRANSPARENT);
@@ -195,23 +304,23 @@ class zRenardWatchView extends WatchUi.WatchFace {
 						dc.setPenWidth(2);
 					} else if (moveDisplayType==2) {
 				        if (moveLevel==1||moveLevel==3||moveLevel==5) {
-				        	dc.drawBitmap((width / 2)-11, 3, ico_move); /*3*/
+				        	dc.drawBitmap2((width / 2)-11, 3, ico_move,moveIconOptions); /*3*/
 				        }
 				        if (moveLevel==2||moveLevel==4) {
-				        	dc.drawBitmap((width / 2)-11-5, 3, ico_move);
-				        	dc.drawBitmap((width / 2)-11+5, 3, ico_move);
+				        	dc.drawBitmap2((width / 2)-11-5, 3, ico_move,moveIconOptions);
+				        	dc.drawBitmap2((width / 2)-11+5, 3, ico_move,moveIconOptions);
 				        }
 				        if (moveLevel==3||moveLevel==5) {
-				        	dc.drawBitmap((width / 2)-11*2, 3, ico_move); /*2*/
-				        	dc.drawBitmap((width / 2), 3, ico_move); /*4*/
+				        	dc.drawBitmap2((width / 2)-11*2, 3, ico_move,moveIconOptions); /*2*/
+				        	dc.drawBitmap2((width / 2), 3, ico_move,moveIconOptions); /*4*/
 				        }
 				        if (moveLevel==4) {
-				        	dc.drawBitmap((width / 2)-11-15, 3, ico_move);
-				        	dc.drawBitmap((width / 2)-11+15, 3, ico_move);
+				        	dc.drawBitmap2((width / 2)-11-15, 3, ico_move,moveIconOptions);
+				        	dc.drawBitmap2((width / 2)-11+15, 3, ico_move,moveIconOptions);
 				        }
 				        if (moveLevel==5) {
-				        	dc.drawBitmap((width / 2)-11*3, 3, ico_move); /*1*/ 
-				        	dc.drawBitmap((width / 2)+11, 3, ico_move); /*5*/
+				        	dc.drawBitmap2((width / 2)-11*3, 3, ico_move,moveIconOptions); /*1*/ 
+				        	dc.drawBitmap2((width / 2)+11, 3, ico_move,moveIconOptions); /*5*/
 				        }
 				    } else { //moveDisplayType==3
 				    	var offsetMove;
@@ -222,20 +331,25 @@ class zRenardWatchView extends WatchUi.WatchFace {
 				    	} else { // Small
 				    		offsetMove = (height/7)*4;
 				    	}
-						if (moveLevel>=1) { dc.drawBitmap((width / 6), offsetMove, ico_move); }
-				        if (moveLevel>=2) { dc.drawBitmap((width / 6)+10, offsetMove, ico_move); }
-				        if (moveLevel>=3) { dc.drawBitmap((width / 6)+10*2, offsetMove, ico_move); }
-				        if (moveLevel>=4) { dc.drawBitmap((width / 6)+10*3, offsetMove, ico_move); }
-				        if (moveLevel>=5) { dc.drawBitmap((width / 6)+10*4, offsetMove, ico_move); }
+						if (moveLevel>=1) { dc.drawBitmap2((width / 6), offsetMove, ico_move,moveIconOptions); }
+				        if (moveLevel>=2) { dc.drawBitmap2((width / 6)+10, offsetMove, ico_move,moveIconOptions); }
+				        if (moveLevel>=3) { dc.drawBitmap2((width / 6)+10*2, offsetMove, ico_move,moveIconOptions); }
+				        if (moveLevel>=4) { dc.drawBitmap2((width / 6)+10*3, offsetMove, ico_move,moveIconOptions); }
+				        if (moveLevel>=5) { dc.drawBitmap2((width / 6)+10*4, offsetMove, ico_move,moveIconOptions); }
 					}
 				}		        
 		        
 		        if (Application.Properties.getValue("ShowNotification")) {
 					var notification = System.getDeviceSettings().notificationCount;
-					if (notification > 0) {
-						dc.drawBitmap((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg);
+					if (notification > 0) {						
+						if (redShift) { // Red shift mode						
+							dc.drawBitmap2((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg, { :tintColor => redShiftColor });
+						} else {
+							dc.drawBitmap2((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg, { :tintColor => notificationIconColor });
+						}
 						dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 						dc.drawText(width / 2+50, 34-offSetBigFontNotif, Graphics.FONT_TINY, notification.toString(), Graphics.TEXT_JUSTIFY_CENTER);
+//						dc.drawAngledText(width / 2+50, 34-offSetBigFontNotif, Graphics.getVectorFont( { :face => "BionicBold", :size => 20} ), notification.toString(), Graphics.TEXT_JUSTIFY_CENTER,45);
 					}
 				}
 			}

@@ -17,9 +17,9 @@
     <string id="UseSleepModeTitle">Masque la date et les notifications en mode repos</string>
     <string id="UltraSleepModeTitle">Si le niveau de batterie est critique, l'écran devient entièrement noir, et la montre est affiché uniquement en dehors du mode repos.</string>
     <string id="ShowNotificationTitle">Affichage des notification ?</string>
-    <string id="BatteryLevelTitle">Le niveau minimum de la batterie qui declanche l'affichage</string>
-	<string id="BatteryLevelError">Le niveau doit etre entre 5 et 95</string>
 
+    <string id="WeatherTitle">Météo</string>
+    <string id="WeatherDescription">Ou et comment afficher la météo</string>
 	<string id="ShowWeatherTitle">Afficher les conditions méteo</string>
 	<string id="WeatherIconColorTitle">Couleur de l'icone méteo</string>
 	<string id="WeatherDayTitle">Condition méteo à afficher</string>
@@ -34,9 +34,19 @@
 	<string id="Bottom">Centré en bas</string>
 	<string id="BottomHour">Sous l'heure</string>
 
+    <string id="RedShiftTitle">RedShift</string>
+    <string id="RedShiftDescription">Affiche tout en rouge</string>
+    <string id="RedShiftFlagTitle">RedShift : Change le display en rouge au couché du soleil, retour à la normal au lever du soleil</string>
+
+    <string id="BatteryTitle">Batterie</string>
+    <string id="BatteryDescription">Affichage du niveau de la batterie</string>
     <string id="BatteryLevelCriticalTitle">Le niveau minimum de la batterie qui declanche l'affichage d'une alerte</string>
 	<string id="BatteryLevelCriticalError">Le niveau doit etre entre 2 et 30</string>
+    <string id="BatteryLevelTitle">Le niveau minimum de la batterie qui declanche l'affichage</string>
+	<string id="BatteryLevelError">Le niveau doit etre entre 5 et 95</string>
 
+    <string id="InactivityTitle">Inactivité</string>
+    <string id="InactivityDescription">Affichage du niveau d'inactivité</string>
 	<string id="ShowMoveTitle">Affiche l'inactivité</string>
     <string id="MoveDisplayTypeTitle">Mode pour l'inactivité</string>
 	<string id="MoveCircle">Sous forme de cercle</string>

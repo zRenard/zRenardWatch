@@ -1,60 +1,65 @@
 # zRenardWatch
 Garmin Watch Face
 
-Montre numÈrique simple avec notification et affichage du % de batterie.
-Les paramËtres sont disponible pour changer les couleurs, les seuils pour l'affichage de la batterie, l'affichage des notifications, et l'utilisation d'un affichage plus grand.
+Montre num√©rique simple avec notification et affichage du % de batterie.
+Les param√®tres sont disponible pour changer les couleurs, les seuils pour l'affichage de la batterie, l'affichage des notifications, et l'utilisation d'un affichage plus grand.
 
-Le mode repos est supportÈ, il peut Ítre dÈsactivÈ via les paramËtres.
+Le mode repos est support√©, il peut √™tre d√©sactiv√© via les param√®tres.
 
 Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930-4527-9fc8-fa65d69d4ef4
 
-# PossibilitÈ de configuration
+# Possibilit√© de configuration
 
 ## Couleurs
 * Fond
 * Heure
 * Date
-* Cercle d'inactivitÈ
-* Icones MÈteo
+* Cercle d'inactivit√©
+* Icones M√©teo
 
 ## Affichage
 * Notifications (On/Off)
-* MÈteo (On/Off)
-* Mode Èconomie (On/Off). En mode Èconomie, uniquement l'horloge  est affichÈe.
-* Option pour utiliser diffÈrentes polices pour l'heure (petite, moyenne, grande)
+* M√©teo (On/Off)
+* Mode √©conomie (On/Off). En mode √©conomie, uniquement l'horloge  est affich√©e.
+* Option pour utiliser diff√©rentes polices pour l'heure (petite, moyenne, grande)
+* RedShift en fonction de couch√© et lev√© de soleil li√© √† la position fourni par la m√©t√©o
 
 ## Affichage du niveau de la batterie
-* Valeur minimum (%) pour líaffichage.
-* Valeur minimum pour líaffichage de líalerte
+* Valeur minimum (%) pour l‚Äôaffichage.
+* Valeur minimum pour l‚Äôaffichage de l‚Äôalerte
 
-## Status d'inactivitÈ
-* Affichage d'inactivitÈ (On/Off)
-* Affichage sous forme de cercle, d'icÙnes en haut de l'horloge ou sur le cÙtÈ gauche.
-* Couleur du cercle d'inactivitÈ.
+## Status d'inactivit√©
+* Affichage d'inactivit√© (On/Off)
+* Affichage sous forme de cercle, d'ic√¥nes en haut de l'horloge ou sur le c√¥t√© gauche.
+* Couleur du cercle d'inactivit√©.
 
 ## Historique des version
+* 1.9.0
+	* (**nouveaut√©s**) RedShift (Change l'affichage en rouge la nuit)
+	* (**nouveaut√©s**) Ajout des couleurs pour l'icones de la m√©teo
+	* (*correction*) Correction d'une erreur si la m√©t√©o est possible mais indisponible
 * 1.7.1
-	* (**nouveautÈs**) Couleurs libre (Vous pouvez personaliser les couleurs)  https://github.com/zRenard/zRenardWatch/issues/12
-	* (**nouveautÈs**) Ajout d'une option pour positionner la mÈtÈo
-	* (**nouveautÈs**) Ajout du zoom de la mÈteo sous forme d'icone
-	* (**nouveautÈs**) Ajout d'une option pour supprimer l'annÈe de la date https://github.com/zRenard/zRenardWatch/issues/13
+	* (**nouveaut√©s**) Couleurs libre (Vous pouvez personaliser les couleurs)  https://github.com/zRenard/zRenardWatch/issues/12
+	* (**nouveaut√©s**) Ajout d'une option pour positionner la m√©t√©o
+	* (**nouveaut√©s**) Ajout du zoom de la m√©teo sous forme d'icone
+	* (**nouveaut√©s**) Ajout d'une option pour supprimer l'ann√©e de la date https://github.com/zRenard/zRenardWatch/issues/13
 * 1.7.0
-	* (**nouveautÈs**) Ajout de la mÈteo sous forme d'icones
+	* (**nouveaut√©s**) Ajout de la m√©teo sous forme d'icones
 * 1.6.1
-	* (**nouveautÈs**) Ajout des nouvelles montres 955/Solar, 7X, 255, 745
-	* (**nouveautÈs**) Support du nouveau SDK
+	* (**nouveaut√©s**) Ajout des nouvelles montres 955/Solar, 7X, 255, 745
+	* (**nouveaut√©s**) Support du nouveau SDK
 * 1.6.0
-	* (**nouveautÈs**) Ajout de la police de taille intermÈdiaire. https://github.com/zRenard/zRenardWatch/issues/6
-	* (**nouveautÈs**) Ajout de la couleur jaune. https://github.com/zRenard/zRenardWatch/issues/10
-	* (*correction*) Prise en charge du nouveau SDK et des nouvelles gestion des propriÈtÈs. https://github.com/zRenard/zRenardWatch/issues/9
+	* (**nouveaut√©s**) Ajout de la police de taille interm√©diaire. https://github.com/zRenard/zRenardWatch/issues/6
+	* (**nouveaut√©s**) Ajout de la couleur jaune. https://github.com/zRenard/zRenardWatch/issues/10
+	* (*correction*) Prise en charge du nouveau SDK et des nouvelles gestion des propri√©t√©s. https://github.com/zRenard/zRenardWatch/issues/9
 * 1.5.0
-	* (*correction*) RÈÈcriture de la gestion des propriÈtÈs. https://github.com/zRenard/zRenardWatch/issues/9
+	* (*correction*) R√©√©criture de la gestion des propri√©t√©s. https://github.com/zRenard/zRenardWatch/issues/9
 * 1.4.4
      * (*correction*) Correction d'un crash avec la configuration et le nouveau SDK. https://github.com/zRenard/zRenardWatch/issues/7
-     * (**nouveautÈs**) Ajout d'options de couleur et de taille pour le cercle d'inactivitÈ https://github.com/zRenard/zRenardWatch/issues/8
+     * (**nouveaut√©s**) Ajout d'options de couleur et de taille pour le cercle d'inactivit√© https://github.com/zRenard/zRenardWatch/issues/8
 * 1.4.3
-	- (**nouveautÈs**) Ajout du support de la nouvelle Fenix 7 et des nouveaux modËles
+	- (**nouveaut√©s**) Ajout du support de la nouvelle Fenix 7 et des nouveaux mod√®les
 * 1.4.2
-     - (*correction*) Correction d'une erreur de compatibilitÈ de l'antialiasing sur la Fenix5
+     - (*correction*) Correction d'une erreur de compatibilit√© de l'antialiasing sur la Fenix5
 * 1.4.1
-     - (**nouveautÈs**) Ajout de nouvelles couleurs
+     - (**nouveaut√©s**) Ajout de nouvelles couleurs

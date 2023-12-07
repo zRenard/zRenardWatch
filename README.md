@@ -20,6 +20,7 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Weather (On/Off)
 * Use sleep mode (On/Off). In sleep mode, display only clock.
 * Option to select fond for hour (small, medium, big)
+* Redshift based sunrise and sunset of the location provided by the weather
 
 ## Battery level show
 * Minimum value to display %
@@ -31,6 +32,10 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Set inactivity circle color
 
 ## History
+* 1.9.0
+	* (**new**) RedShift mode based sunrise and sunset of the location provided by the weather
+	* (**new**) Add colors options for weather icons
+	* (*fix*) Fix a bug while connection fail to retreive weather
 * 1.7.1
 	* (**new**) Free colors (you can define your own colors) https://github.com/zRenard/zRenardWatch/issues/12
 	* (**new**) Add position of the weather icons
