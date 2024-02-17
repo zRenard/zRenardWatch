@@ -32,6 +32,8 @@ Available on Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a930
 * Set inactivity circle color
 
 ## History
+* 1.9.1
+	* (*fix*) In RedShift mode, critical battery % is not visible https://github.com/zRenard/zRenardWatch/issues/15
 * 1.9.0
 	* (**new**) RedShift mode based sunrise and sunset of the location provided by the weather
 	* (**new**) Add colors options for weather icons

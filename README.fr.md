@@ -34,6 +34,8 @@ Disponible sur Garmin ConnectIQ : https://apps.garmin.com/fr-FR/apps/4c058f81-a9
 * Couleur du cercle d'inactivité.
 
 ## Historique des version
+* 1.9.1
+	* (*correction*) Avec le mode RedShift quand la batterie ateint un niveau critique le text n'est pas visible https://github.com/zRenard/zRenardWatch/issues/15
 * 1.9.0
 	* (**nouveautés**) RedShift (Change l'affichage en rouge la nuit)
 	* (**nouveautés**) Ajout des couleurs pour l'icones de la méteo
