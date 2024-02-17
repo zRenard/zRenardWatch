@@ -243,7 +243,11 @@ class zRenardWatchView extends WatchUi.WatchFace {
 	    	    	dc.fillRectangle(0, 3*height/4+4+offSetBigFont, width, 20);
 	    	    }
 		        if (battery <=batteryLevel || System.getSystemStats().charging ) {
-		        	dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
+					if (redShift) {
+		        		dc.setColor(bgC, Graphics.COLOR_TRANSPARENT);
+					} else {
+						dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
+					}
 		        	dc.drawText(width / 2, 3*height/4+offSetBigFont, Graphics.FONT_TINY, battery.toString() + "%", Graphics.TEXT_JUSTIFY_CENTER);
 		        }
 		
