@@ -200,7 +200,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 
 			dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
 			if (!sleepMode || (sleepMode && !sleepMode)) {
-				// Date if not in sleep mode (or sleep mode desactivated)
+				// Date if not in sleep mode (or sleep mode deactivated)
 				if (Application.Properties.getValue("ShowYear")) {
 					dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
 				} else { 
