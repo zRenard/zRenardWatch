@@ -70,10 +70,6 @@ class zRenardWatchView extends WatchUi.WatchFace {
         var weatherIconColor = Application.Properties.getValue("WeatherIconColor");
         var notificationIconColor = 0xFFFFFF;
         
-		// System.println("showWeather : " + showWeather);
-		// System.println("redShiftFlag : " + redShiftFlag);
-
-
         // Update weather every X minutes
         var delayedUpdateMax = Application.Properties.getValue("WeatherRefreshRateMinutes")*60;
       	// Ensure that we reduce current delay
@@ -112,18 +108,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 			}
 		}
 
-		// var midnight = Time.today();
-
-		//  System.println("sunSet  " + sunSet.value());
-		//  System.println("Now     " + Time.now().value());
-		//  System.println("midnight" + midnight.value());
-		//  System.println("sunrise " + sunRise.value());
-
-		// System.println("sunSet " + Gregorian.info(sunSet, Time.FORMAT_MEDIUM).hour.toNumber() + ":"+ Gregorian.info(sunSet, Time.FORMAT_MEDIUM).min.toNumber());
-		// System.println("Now " + Gregorian.info(Time.now(), Time.FORMAT_MEDIUM).hour.toNumber() + ":"+ Gregorian.info(Time.now(), Time.FORMAT_MEDIUM).min.toNumber());
-		// System.println("sunrise " + Gregorian.info(sunRise, Time.FORMAT_MEDIUM).hour.toNumber() + ":"+ Gregorian.info(sunRise, Time.FORMAT_MEDIUM).min.toNumber());
-
-		// Sunset and Sunrise change after midnight, before it's the previsous sunrise, after it's the next sunrise.
+		// Sunset and Sunrise change after midnight, before it's the previous sunrise, after it's the next sunrise.
 		// It's data for the day.
 		// if before midnight
 		//   if sunset <= now -> night shift
@@ -144,25 +129,8 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		} else {
 			redShift=false;
 		}
-
-		// System.println("redShift : " + redShift);
-
-		// System.println("sunrise " + Gregorian.info(sunRise, Time.FORMAT_MEDIUM).hour.toNumber());
-		// System.println("sunset " + Gregorian.info(sunSet, Time.FORMAT_MEDIUM).hour.toNumber());
-
-		//var redShiftStart = "23:20";
-		//var redShiftEnd = "23:30";
-		
-		// var redShiftStartHour = 0;
-		// var redShiftStartMinute = 43;
- 		
-		// var redShiftEndHour = 0;
-		// var redShiftEndMinute = 45;
-		
-		// var redShift = redShiftFlag && hours>=redShiftStartHour && minutes>=redShiftStartMinute && hours<=redShiftEndHour && minutes<=redShiftEndMinute;
 		
  		if (redShift ) { // Red shift mode
- 		// && redShiftStartHour>=hours && redShiftStartMinute>=minutes && redShiftEndHour<=hours && redShiftEndMinute<=minutes
  			bgC = 0x000000;
  			fgC = redShiftColor;
  			fgHC = redShiftColor;
@@ -190,9 +158,9 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        	 if (nowText.hour.toNumber()<12) { // Before noon
 		        	 	weatherCondition=weather[1].condition; // Today weather
 		        	 } else {
-		        	 	weatherCondition=weather[2].condition; // Tommorow weather
+		        	 	weatherCondition=weather[2].condition; // Tomorrow weather
 		        	 }
-		        	} else { // Otherwise we rely on settings (Today or Tommorow)
+		        	} else { // Otherwise we rely on settings (Today or Tomorrow)
 		        		weatherCondition=weather[weatherConditionDay].condition;
 		        	}
 		        }
@@ -232,7 +200,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 
 			dc.setColor(hlC ,Graphics.COLOR_TRANSPARENT);
 			if (!sleepMode || (sleepMode && !sleepMode)) {
-				// Date if not in sleep mode (or sleep mode desactivated)
+				// Date if not in sleep mode (or sleep mode deactivated)
 				if (Application.Properties.getValue("ShowYear")) {
 					dc.drawText( (width / 2), (height /2)+60-20+offSetBigFont, Graphics.FONT_TINY, nowText.day_of_week+" "+myDay+" "+nowText.month+" "+nowText.year, Graphics.TEXT_JUSTIFY_CENTER);
 				} else { 
@@ -260,8 +228,8 @@ class zRenardWatchView extends WatchUi.WatchFace {
 					}
 		        } 
 				if (showWeather) {
-					var defaultConditionIcon = 53; // default icon ? for unknow weather
-					var conditionIcon = weatherCondition;
+					var defaultConditionIcon = 53; // default icon ? for unknown weather
+					var conditionIcon = weatherCondition>=0?weatherCondition:defaultConditionIcon; // Avoid -1 as conditionIcon
 					var ico_weather = weatherIcons.get(conditionIcon);
 					if (ico_weather==null) {
 						ico_weather = weatherIcons.get(defaultConditionIcon);
