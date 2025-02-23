@@ -229,7 +229,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        } 
 				if (showWeather) {
 					var defaultConditionIcon = 53; // default icon ? for unknown weather
-					var conditionIcon = weatherCondition;weatherCondition>=0?weatherCondition:defaultConditionIcon; // Avoid -1 as conditionIcon
+					var conditionIcon = weatherCondition>=0?weatherCondition:defaultConditionIcon; // Avoid -1 as conditionIcon
 					var ico_weather = weatherIcons.get(conditionIcon);
 					if (ico_weather==null) {
 						ico_weather = weatherIcons.get(defaultConditionIcon);
