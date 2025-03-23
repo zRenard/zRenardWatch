@@ -39,6 +39,8 @@ Available on Garmin ConnectIQ : <https://apps.garmin.com/fr-FR/apps/4c058f81-a93
 
 #### History
 
+* 1.9.3
+  * (*fix*) Minor fix if there's more than 100 notifications <https://github.com/zRenard/zRenardWatch/issues/18>
 * 1.9.2
   * (*fix*) Fix crash in cas of unavailable weather data <https://github.com/zRenard/zRenardWatch/issues/16>
 * 1.9.1

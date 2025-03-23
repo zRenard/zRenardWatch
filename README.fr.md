@@ -40,6 +40,8 @@ Disponible sur Garmin ConnectIQ : <https://apps.garmin.com/fr-FR/apps/4c058f81-a
 
 ### Historique des version
 
+* 1.9.3
+  * (*correction*) Correction d'affichage si il y a plus de 100 notifications <https://github.com/zRenard/zRenardWatch/issues/18>
 * 1.9.2
   * (*correction*) Correction d'erreur en cas de météo non disponible <https://github.com/zRenard/zRenardWatch/issues/16>
 * 1.9.1

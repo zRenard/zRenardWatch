@@ -320,7 +320,11 @@ class zRenardWatchView extends WatchUi.WatchFace {
 							dc.drawBitmap2((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg, { :tintColor => notificationIconColor });
 						}
 						dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-						dc.drawText(width / 2+50, 34-offSetBigFontNotif, Graphics.FONT_TINY, notification.toString(), Graphics.TEXT_JUSTIFY_CENTER);
+						if (notification>99) {
+							dc.drawText(width / 2+50, 37-offSetBigFontNotif, Graphics.FONT_XTINY, notification.toString(), Graphics.TEXT_JUSTIFY_CENTER);
+						} else {
+							dc.drawText(width / 2+50, 34-offSetBigFontNotif, Graphics.FONT_TINY, notification.toString(), Graphics.TEXT_JUSTIFY_CENTER);
+						}
 //						dc.drawAngledText(width / 2+50, 34-offSetBigFontNotif, Graphics.getVectorFont( { :face => "BionicBold", :size => 20} ), notification.toString(), Graphics.TEXT_JUSTIFY_CENTER,45);
 					}
 				}
