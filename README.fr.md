@@ -26,6 +26,8 @@ Disponible sur Garmin ConnectIQ : <https://apps.garmin.com/fr-FR/apps/4c058f81-a
 * Mode économie (On/Off). En mode économie, uniquement l'horloge  est affichée.
 * Option pour utiliser différentes polices pour l'heure (petite, moyenne, grande)
 * RedShift en fonction de couché et levé de soleil lié à la position fourni par la météo
+* RedShift mode (force le theme rouge) ; disponible sur dans les paramètres de l’écran de montre
+* Night Vision mode (force le theme vert) ; disponible sur dans les paramètres de l’écran de montre
 
 ### Affichage du niveau de la batterie
 
@@ -40,6 +42,9 @@ Disponible sur Garmin ConnectIQ : <https://apps.garmin.com/fr-FR/apps/4c058f81-a
 
 ### Historique des version
 
+* 2.0.0
+  * (**nouveautés**) Les mode RedShift et NightVision sont disponible directement dans les paramètres de l’écran de montre. Cela force l'affichage en rouge ou vert.
+  * (**nouveautés**) Ajout de la personnalisation de la couleur du texte des notifications.
 * 1.9.3
   * (*correction*) Correction d'affichage si il y a plus de 100 notifications <https://github.com/zRenard/zRenardWatch/issues/18>
 * 1.9.2

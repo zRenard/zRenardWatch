@@ -1,6 +1,15 @@
 <strings>
     <string id="AppName">zRenardWatch</string>
 
+    <string id="ModeTitle">Mode</string>
+    <string id="Normal">Normal</string>
+
+    <string id="ForceNightVisionTitle">Night vision</string>
+    <string id="ForceNightVisionDescription">Force l'utilisation du thème vert pour le cadran</string>
+
+    <string id="ForceRedShiftTitle">RedShift</string>
+    <string id="ForceRedShiftDescription">Force l'utilisation du thème rouge pour le cadran</string>
+
     <string id="ColorFree">Libre (entrez un code dessous)</string>
     <string id="BackgroundColorTitle">Couleur de fond</string>
     <string id="ForegroundColorTitle">Couleur du texte</string>
@@ -16,7 +25,10 @@
 
     <string id="UseSleepModeTitle">Masque la date et les notifications en mode repos</string>
     <string id="UltraSleepModeTitle">Si le niveau de batterie est critique, l'écran devient entièrement noir, et la montre est affiché uniquement en dehors du mode repos.</string>
-    <string id="ShowNotificationTitle">Affichage des notification ?</string>
+
+    <string id="ShowNotificationTitle">Affichage des notifications ?</string>
+    <string id="NotificationIconColorTitle">Couleur de l'icone des notifications</string>
+    <string id="NotificationTextColorTitle">Couleur du texte des notifications</string>
 
     <string id="WeatherTitle">Météo</string>
     <string id="WeatherDescription">Ou et comment afficher la météo</string>

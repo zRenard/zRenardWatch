@@ -1,6 +1,15 @@
 <strings>
 	<string id="AppName">zRenardWatch</string>
 
+    <string id="ModeTitle">Mode</string>
+    <string id="Normal">Normal</string>
+
+    <string id="ForceNightVisionTitle">Night vision</string>
+    <string id="ForceNightVisionDescription">Force green theme</string>
+
+    <string id="ForceRedShiftTitle">RedShift</string>
+    <string id="ForceRedShiftDescription">Force red theme</string>
+
     <string id="ColorFree">Free (enter rgb code bellow)</string>
     <string id="BackgroundColorTitle">Background Color</string>
     <string id="ForegroundColorTitle">Foreground Color</string>
@@ -15,9 +24,12 @@
     <string id="Large">Large</string>
 
     <string id="UseSleepModeTitle">Use sleep mode to hide date and notification</string>
-    <string id="ShowNotificationTitle">Show Notification</string>
     <string id="UltraSleepModeTitle">Display bank screen when battery is bellow critical level, and show it only when exiting sleep mode</string>
 	
+    <string id="ShowNotificationTitle">Show Notification</string>
+    <string id="NotificationIconColorTitle">Notification icon color</string>
+    <string id="NotificationTextColorTitle">Notification text color</string>
+
     <string id="WeatherTitle">Weather</string>
     <string id="WeatherDescription">How and where display weather</string>
 	<string id="ShowWeatherTitle">Display weather conditions</string>

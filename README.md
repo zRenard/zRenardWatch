@@ -25,6 +25,8 @@ Available on Garmin ConnectIQ : <https://apps.garmin.com/fr-FR/apps/4c058f81-a93
 * Use sleep mode (On/Off). In sleep mode, display only clock.
 * Option to select fond for hour (small, medium, big)
 * Redshift based sunrise and sunset of the location provided by the weather
+* RedShift mode (force red theme), also available as watch face parameter on the device
+* Night Vision mode (force green theme), also available as watch face parameter on the device
 
 ### Battery level show
 
@@ -39,6 +41,9 @@ Available on Garmin ConnectIQ : <https://apps.garmin.com/fr-FR/apps/4c058f81-a93
 
 #### History
 
+* 2.0.0
+  * (**new**) RedShift and NightVision mode available on device. Force Red or Green display.
+  * (**new**) Add notification text color customization
 * 1.9.3
   * (*fix*) Minor fix if there's more than 100 notifications <https://github.com/zRenard/zRenardWatch/issues/18>
 * 1.9.2

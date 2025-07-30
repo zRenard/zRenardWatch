@@ -1,4 +1,11 @@
 <properties>
+
+    <property id="Mode" type="number">0</property>
+
+    <property id="ForceRedShift" type="boolean">false</property>
+
+    <property id="ForceNightVision" type="boolean">false</property>
+
     <property id="BackgroundColor" type="number">0x000000</property>
     <property id="FreeBackgroundColor" type="string">0x000000</property>
 
@@ -15,10 +22,18 @@
     <property id="ShowWeather" type="boolean">true</property>
 
     <property id="WeatherIconColor" type="number">0xFFFFFF</property>
+    <property id="FreeWeatherIconColor" type="string">0xFFFFFF</property>
+
     <property id="WeatherDay" type="number">2</property>
     <property id="WeatherRefreshRateMinutes" type="number">30</property>
     <property id="WeatherIconFactor" type="float">1</property>
     <property id="WeatherIconLocation" type="number">0</property>
+
+    <property id="ShowNotification" type="boolean">true</property>
+    <property id="NotificationIconColor" type="number">0xFFFFFF</property>
+    <property id="FreeNotificationIconColor" type="string">0xFFFFFF</property>
+    <property id="NotificationTextColor" type="number">0x000000</property>
+    <property id="FreeNotificationTextColor" type="string">0xFFFFFF</property>
 
     <property id="RedShiftFlag" type="boolean">true</property>
     
@@ -29,7 +44,6 @@
 
     <property id="MoveDisplayType" type="number">1</property>
     <property id="FontSize" type="number">1</property>
-    <property id="ShowNotification" type="boolean">true</property>
     <property id="UseSleepMode" type="boolean">false</property>
     <property id="UltraSleepMode" type="boolean">false</property>
     <property id="BatteryLevel" type="number">30</property>

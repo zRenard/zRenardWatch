@@ -64,12 +64,35 @@ class zRenardWatchView extends WatchUi.WatchFace {
     	var offSetBigFontNotif = 0;
     	var moveLevel = ActivityMonitor.getInfo().moveBarLevel;
 		
-		var redShift = false;
+		var mode = Application.Properties.getValue("Mode");
+		
+		if (mode == 1) {
+			Application.Properties.setValue("ForceNightVision", true);
+			Application.Properties.setValue("ForceRedShift", false);
+		} else if (mode == 2) {
+			Application.Properties.setValue("ForceNightVision", false);
+			Application.Properties.setValue("ForceRedShift", true);
+		} else {
+			Application.Properties.setValue("ForceNightVision", false);
+			Application.Properties.setValue("ForceRedShift", false);
+		}			
+
+		var forceRedShift = Application.Properties.getValue("ForceRedShift");
 		var redShiftColor = 0xAA0000;
+
+		var forceNightVision = Application.Properties.getValue("ForceNightVision");
+		var nightVisionColor = 0x077206;
+
 		var showWeather = Application.Properties.getValue("ShowWeather");
         var weatherIconColor = Application.Properties.getValue("WeatherIconColor");
-        var notificationIconColor = 0xFFFFFF;
-        
+    	if (weatherIconColor == -1) {  weatherIconColor = Application.Properties.getValue("FreeWeatherIconColor").toLongWithBase(16); }
+
+        var notificationIconColor = Application.Properties.getValue("NotificationIconColor");
+        if (notificationIconColor == -1) {  notificationIconColor = Application.Properties.getValue("FreeNotificationIconColor").toLongWithBase(16); }
+
+        var notificationTextColor = Application.Properties.getValue("NotificationTextColor");
+        if (notificationTextColor == -1) {  notificationTextColor = Application.Properties.getValue("FreeNotificationTextColor").toLongWithBase(16); }
+
         // Update weather every X minutes
         var delayedUpdateMax = Application.Properties.getValue("WeatherRefreshRateMinutes")*60;
       	// Ensure that we reduce current delay
@@ -115,30 +138,46 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		// else after midnight
 		//   if now <= sunrise -> night shift
 
-
-		if (redShiftFlag) {
-			// if (midnight.value()<=Time.now().value()) {
-			if (sunSet!=null && sunSet.value()<=Time.now().value()) {
-					redShift=true;
-				// }
-			} else {
-				if (sunRise!=null && Time.now().value()<=sunRise.value()) {
-					redShift=true;
+		if (!forceRedShift) {
+			if (redShiftFlag) {
+				// if (midnight.value()<=Time.now().value()) {
+				if (sunSet!=null && sunSet.value()<=Time.now().value()) {
+						forceRedShift=true;
+					// }
+				} else {
+					if (sunRise!=null && Time.now().value()<=sunRise.value()) {
+						forceRedShift=true;
+					}
 				}
+			} else {
+				forceRedShift=false;
 			}
-		} else {
-			redShift=false;
 		}
 		
- 		if (redShift ) { // Red shift mode
+ 		if (forceRedShift) { // Red shift mode (Red color)
  			bgC = 0x000000;
  			fgC = redShiftColor;
  			fgHC = redShiftColor;
  			fgMC = redShiftColor;
  			hlC = redShiftColor;
  			moveCircleColor = redShiftColor;
+			notificationIconColor = redShiftColor;
+			notificationTextColor = 0x000000; // Black text for red shift
+			weatherIconColor = redShiftColor;
  		}
- 		
+
+		if (forceNightVision) { // Night Vision mode (Green vision)
+ 			bgC = 0x000000;
+ 			fgC = nightVisionColor;
+ 			fgHC = nightVisionColor;
+ 			fgMC = nightVisionColor;
+ 			hlC = nightVisionColor;
+ 			moveCircleColor = nightVisionColor;
+			notificationIconColor = nightVisionColor;
+			notificationTextColor = 0x000000; // Black text for night vision
+			weatherIconColor = nightVisionColor;
+ 		}
+
     	if (fontSize==3) { // Big
     		offSetBigFont = 18;
     		offSetBigFontNotif = 10;
@@ -211,7 +250,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 	    	    	dc.fillRectangle(0, 3*height/4+4+offSetBigFont, width, 20);
 	    	    }
 		        if (battery <=batteryLevel || System.getSystemStats().charging ) {
-					if (redShift) {
+					if (forceRedShift) {
 		        		dc.setColor(bgC, Graphics.COLOR_TRANSPARENT);
 					} else {
 						dc.setColor(fgC, Graphics.COLOR_TRANSPARENT);
@@ -220,7 +259,7 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        }
 		
 		        if (System.getSystemStats().charging ) {
-					if (redShift) { // Red shift mode
+					if (forceRedShift) { // Red shift mode
 						dc.drawBitmap2((width / 2)-20/2, height-23, ico_charge, {:tintColor => redShiftColor });
 					} else {
 						// TODO: Change to chargingIconColor (white by default)
@@ -240,23 +279,16 @@ class zRenardWatchView extends WatchUi.WatchFace {
 					var transform = new Graphics.AffineTransform();
 					//transform.rotate(angle);
 					//transform.translate(-10, -180);
-					transform.scale(icoFactor.toFloat(),icoFactor.toFloat());					
-					if (Application.Properties.getValue("WeatherIconLocation")==0) {							         
-						if (redShift) { // Red shift mode
-							dc.drawBitmap2((width / 2)-ico_size/2, height-ico_size/2-13, ico_weather, { :transform => transform, :tintColor => redShiftColor });
-						} else {
-							dc.drawBitmap2((width / 2)-ico_size/2, height-ico_size/2-13, ico_weather, { :transform => transform, :tintColor => weatherIconColor });
-						}
+					transform.scale(icoFactor.toFloat(),icoFactor.toFloat());
+
+					if (Application.Properties.getValue("WeatherIconLocation")==0) {
+						dc.drawBitmap2((width / 2)-ico_size/2, height-ico_size/2-13, ico_weather, { :transform => transform, :tintColor => weatherIconColor });
 					} else {
 						var weatherOffset=0;
 						if (fontSize==3) { weatherOffset = 20; } // Big font
 						if (fontSize==2) { weatherOffset = 17; } // Medium
 						if (fontSize==1) { weatherOffset = 3; } // Small
-						if (redShift) { // Red shift mode
-							dc.drawBitmap2((width / 2)-50-ico_size/2, (height/2)+weatherOffset-ico_size/2+20, ico_weather, { :transform => transform, :tintColor => redShiftColor });
-						} else {
-							dc.drawBitmap2((width / 2)-50-ico_size/2, (height/2)+weatherOffset-ico_size/2+20, ico_weather, { :transform => transform, :tintColor => weatherIconColor });
-						}
+						dc.drawBitmap2((width / 2)-50-ico_size/2, (height/2)+weatherOffset-ico_size/2+20, ico_weather, { :transform => transform, :tintColor => weatherIconColor });
 					}
 				}
 		        
@@ -264,9 +296,6 @@ class zRenardWatchView extends WatchUi.WatchFace {
 				if (showMove && moveLevel>0) {
 					// TODO: Change to moveIconColor (white by default)
 					var moveIconOptions =  {:tintColor => weatherIconColor };
-					if (redShift) { // Red shift mode
-						moveIconOptions =  {:tintColor => redShiftColor };
-					}
 
 					if (moveDisplayType==1) {
 						dc.setPenWidth(moveCircleWidth);
@@ -314,12 +343,8 @@ class zRenardWatchView extends WatchUi.WatchFace {
 		        if (Application.Properties.getValue("ShowNotification")) {
 					var notification = System.getDeviceSettings().notificationCount;
 					if (notification > 0) {						
-						if (redShift) { // Red shift mode						
-							dc.drawBitmap2((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg, { :tintColor => redShiftColor });
-						} else {
-							dc.drawBitmap2((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg, { :tintColor => notificationIconColor });
-						}
-						dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+						dc.drawBitmap2((width / 2)-(34/2)+50, 34-offSetBigFontNotif, ico_msg, { :tintColor => notificationIconColor });
+						dc.setColor(notificationTextColor, Graphics.COLOR_TRANSPARENT);
 						if (notification>99) {
 							dc.drawText(width / 2+50, 37-offSetBigFontNotif, Graphics.FONT_XTINY, notification.toString(), Graphics.TEXT_JUSTIFY_CENTER);
 						} else {

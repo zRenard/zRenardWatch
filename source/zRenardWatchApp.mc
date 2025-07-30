@@ -1,10 +1,20 @@
-using Toybox.Application;
-using Toybox.WatchUi;
+import Toybox.Application;
+import Toybox.Lang;
+import Toybox.WatchUi;
 
 class zRenardWatchApp extends Application.AppBase {
 
     public function initialize() {
         AppBase.initialize();
+        
+        // Initialiser les propriétés par défaut
+        if (Application.Properties.getValue("ForceRedShift") == null) {
+            Application.Properties.setValue("ForceRedShift", false);
+        }
+        if (Application.Properties.getValue("ForceNightVision") == null) {
+            Application.Properties.setValue("ForceNightVision", false);
+        }
+        
         // White icons : Some are duplicated
         weatherIcons.put(0,WatchUi.loadResource(Rez.Drawables.id_w0));
         weatherIcons.put(1,WatchUi.loadResource(Rez.Drawables.id_w1));
@@ -115,6 +125,12 @@ class zRenardWatchApp extends Application.AppBase {
         weatherIcons.put(151,WatchUi.loadResource(Rez.Drawables.id_b34));
         weatherIcons.put(152,WatchUi.loadResource(Rez.Drawables.id_b52));
         weatherIcons.put(153,WatchUi.loadResource(Rez.Drawables.id_b53));        
+    }
+    
+    //! Return the settings view and delegate
+    //! @return Array Pair [View, Delegate]
+    public function getSettingsView() as [Views] or [Views, InputDelegates] or Null {
+        return [new $.zRenardWatchMenu(), new $.zRenardWatchMenuDelegate()];
     }
 
     // onStart() is called on application start up
